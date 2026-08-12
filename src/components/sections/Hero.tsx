@@ -28,13 +28,11 @@ export function Hero() {
       }
 
       // 1. Initial Entrance Animation
-      tl.from(".hero-anim-eyebrow", { opacity: 0, y: 16, duration: 0.6 }, 0)
-        .from(".hero-anim-h1", { y: "100%", duration: 0.7, stagger: 0.09, ease: "power4.out" }, 0.1)
+      tl.from(".hero-anim-h1", { y: "100%", duration: 0.7, stagger: 0.09, ease: "power4.out" }, 0.1)
         .from(".hero-anim-p", { opacity: 0, y: 16, duration: 0.6 }, 0.3)
         .from(".hero-anim-cta", { opacity: 0, y: 16, duration: 0.6 }, 0.4)
         .from(".hero-anim-trust", { opacity: 0, duration: 0.6 }, 0.5)
-        .from(".scene-wrapper", { opacity: 0, duration: 1.0 }, 0.3)
-        .from(".hud-card", { opacity: 0, y: 20, duration: 0.5, stagger: 0.05 }, 1.1);
+        .from(".scene-wrapper", { opacity: 0, duration: 1.0 }, 0.3);
 
       // 2. Scroll-driven Text Transitions (Parallax)
       // The container is 300vh.
@@ -48,10 +46,7 @@ export function Hero() {
       });
 
       // From 0 to 40% scroll: Text 1 moves up and fades out
-      scrollTl.to(".hero-text-1", { y: -100, opacity: 0, ease: "none" }, 0);
-      
-      // HUD cards parallax slowly across the whole scroll
-      scrollTl.to(".hud-card", { y: -200, ease: "none" }, 0);
+      scrollTl.to(".hero-text-1", { y: -100, opacity: 0, ease: "power2.in" }, 0);
 
       // From 30% to 70% scroll: Text 2 enters from bottom and stays
       scrollTl.fromTo(".hero-text-2", 
@@ -59,6 +54,13 @@ export function Hero() {
         { y: 0, opacity: 1, ease: "power2.out", duration: 0.4 }, 
         0.3 // starts at 30% of scroll
       );
+
+      // Fade out the entire hero sticky content at the very end to seamlessly reveal the next section
+      scrollTl.to(stickyRef.current, {
+        opacity: 0,
+        duration: 0.1,
+        ease: "power2.inOut"
+      }, 0.9);
       
     }, containerRef);
 
@@ -66,8 +68,8 @@ export function Hero() {
   }, [reducedMotion]);
 
   return (
-    <section ref={containerRef} className="hero-scroll-container relative w-full h-[300vh] bg-bg">
-      <div ref={stickyRef} className="sticky top-0 w-full h-screen min-h-[750px] overflow-hidden flex items-center pt-24 lg:pt-0">
+    <section ref={containerRef} className="hero-scroll-container relative w-full h-[300vh] z-10 pointer-events-none">
+      <div ref={stickyRef} className="sticky top-0 w-full h-screen min-h-[750px] overflow-hidden flex items-center pt-24 lg:pt-0 pointer-events-auto bg-surface">
         
         {/* Background Scene (Handles its own scroll scrubbing via TruckScene) */}
         <div className="absolute inset-0 z-0">
