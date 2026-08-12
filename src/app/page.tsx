@@ -1,10 +1,46 @@
+import { Navbar } from "../components/layout/Navbar";
+import { Footer } from "../components/layout/Footer";
+import { StickyMobileCta } from "../components/layout/StickyMobileCta";
+
+import { Hero } from "../components/sections/Hero";
+import { TrustBar } from "../components/sections/TrustBar";
+import { Problem } from "../components/sections/Problem";
+import { Solution } from "../components/sections/Solution";
+import { Services } from "../components/sections/Services";
+import { Equipment } from "../components/sections/Equipment";
+import { HowItWorks } from "../components/sections/HowItWorks";
+import { LoadBoard } from "../components/sections/LoadBoard";
+import { RouteMap } from "../components/sections/RouteMap";
+import { WhyNexar } from "../components/sections/WhyNexar";
+import { Metrics } from "../components/sections/Metrics";
+import { Testimonials } from "../components/sections/Testimonials";
+import { Faq } from "../components/sections/Faq";
+import { Cta } from "../components/sections/Cta";
+import { ContactForm } from "../components/sections/ContactForm";
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold tracking-tight">Nexar Dispatch</h1>
-      <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
-        Welcome to your new dispatcher application.
-      </p>
-    </div>
+    <>
+      <Navbar />
+      <main className="flex min-h-screen flex-col">
+        <Hero />
+        <TrustBar />
+        <Problem />
+        <Solution />
+        <Services />
+        <Equipment />
+        <HowItWorks />
+        <LoadBoard />
+        <RouteMap />
+        <WhyNexar />
+        <Metrics />
+        <Testimonials />
+        <Faq />
+        <Cta />
+        <ContactForm />
+      </main>
+      <Footer />
+      <StickyMobileCta />
+    </>
   );
 }
