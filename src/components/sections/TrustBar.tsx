@@ -67,6 +67,13 @@ export function TrustBar() {
           0.8
         );
 
+        // Fade out the entire TrustBar sticky content at the very end to smoothly reveal the next section
+        scrollTl.to(stickyRef.current, {
+          opacity: 0,
+          duration: 0.1,
+          ease: "power2.inOut"
+        }, 0.9);
+
       }, containerRef);
     };
 
@@ -85,8 +92,8 @@ export function TrustBar() {
   }, [reducedMotion]);
 
   return (
-    <section ref={containerRef} className="trustbar-scroll-container relative w-full h-[400vh] bg-bg -mt-[100vh] z-0">
-      <div ref={stickyRef} className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
+    <section ref={containerRef} className="trustbar-scroll-container relative w-full h-[400vh] bg-transparent -mt-[100vh] z-20 pointer-events-none">
+      <div ref={stickyRef} className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center pointer-events-auto">
         
         {/* Background Video */}
         <div className="absolute inset-0 z-0 flex items-center justify-center bg-surface">

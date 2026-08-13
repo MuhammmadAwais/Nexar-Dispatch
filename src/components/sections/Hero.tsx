@@ -68,7 +68,7 @@ export function Hero() {
   }, [reducedMotion]);
 
   return (
-    <section ref={containerRef} className="hero-scroll-container relative w-full h-[300vh] z-10 pointer-events-none">
+    <section ref={containerRef} className="hero-scroll-container relative w-full h-[300vh] z-30 pointer-events-none bg-transparent">
       <div ref={stickyRef} className="sticky top-0 w-full h-screen min-h-[750px] overflow-hidden flex items-center pt-24 lg:pt-0 pointer-events-auto bg-surface">
         
         {/* Background Scene (Handles its own scroll scrubbing via TruckScene) */}
