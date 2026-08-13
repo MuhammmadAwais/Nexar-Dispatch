@@ -4,6 +4,7 @@ import { StickyMobileCta } from "../components/layout/StickyMobileCta";
 
 import { Hero } from "../components/sections/Hero";
 import { TrustBar } from "../components/sections/TrustBar";
+import ServicesShowcase from "../components/sections/ServicesShowcase";
 import { RoadJourney } from "../components/sections/RoadJourney";
 import { Problem } from "../components/sections/Problem";
 import { Solution } from "../components/sections/Solution";
@@ -26,6 +27,7 @@ export default function Home() {
       <main className="flex min-h-screen flex-col">
         <Hero />
         <TrustBar />
+        <ServicesShowcase />
         <RoadJourney />
         <Problem />
         <Solution />
