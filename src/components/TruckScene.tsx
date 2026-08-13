@@ -64,7 +64,7 @@ export function TruckScene() {
     <div ref={containerRef} className="relative w-full h-screen overflow-hidden bg-bg scene-wrapper flex flex-col justify-between">
       
       {/* Background Image (Top) fading into the video */}
-      <div className="absolute top-0 left-0 w-full h-[65%] z-0">
+      <div className="absolute top-0 left-0 w-full h-[65%] z-0" suppressHydrationWarning>
         <Image 
           src="/OIP.webp" 
           alt="Clouds Background"
@@ -75,6 +75,7 @@ export function TruckScene() {
             maskImage: "linear-gradient(to bottom, black 50%, transparent 100%)", 
             WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 100%)" 
           }}
+          suppressHydrationWarning
         />
       </div>
       

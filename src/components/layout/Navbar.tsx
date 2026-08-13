@@ -63,7 +63,7 @@ export function Navbar() {
       >
         <div className="mx-auto max-w-7xl px-4 md:px-[clamp(1.25rem,4vw,4rem)] flex items-center justify-between">
           <a href="#" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Nexar Dispatch" width={180} height={40} className="object-contain w-auto h-[32px] md:h-[40px]" />
+            <Image src="/logo.png" alt="Nexar Dispatch" width={180} height={40} className="object-contain w-auto h-[32px] md:h-[40px]" style={{ width: "auto" }} />
           </a>
 
           {/* Desktop Nav */}

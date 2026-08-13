@@ -26,8 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       className={`${montserrat.variable} ${instrumentSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <svg
           className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.02]"
           xmlns="http://www.w3.org/2000/svg"
