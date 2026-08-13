@@ -50,33 +50,55 @@ export function RoadJourney() {
       0.1
     );
     // Pan the road up while the truck drives down
+    // The road is 200vw tall (when rotated). 
+    // Start with the top of the road exactly at the top of the screen: y = 100vw - 50vh
+    // End with the bottom of the road exactly at the bottom of the screen: y = -100vw + 50vh
     scrollTl.fromTo(".road-pan-wrapper",
-      { y: '50vh' },
-      { y: '-50vh', ease: "none", duration: 1 },
+      { y: 'calc(100vw - 50vh)' },
+      { y: 'calc(-100vw + 50vh)', ease: "none", duration: 1 },
       0
     );
 
-    // Left Text Block (enters early, exits mid)
+    // Parallax Text Blocks on the Left Side
+    // Text 1
     scrollTl.fromTo(".road-text-1", 
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.15, ease: "power2.out" },
-      0.1
+      { y: '100vh', opacity: 0 },
+      { y: '20vh', opacity: 1, duration: 0.15, ease: "power2.out" },
+      0.05
     );
     scrollTl.to(".road-text-1", 
-      { y: -100, opacity: 0, duration: 0.15, ease: "power2.in" },
-      0.4
+      { y: '-50vh', opacity: 0, duration: 0.15, ease: "power2.in" },
+      0.25
     );
 
-    // Right Text Block (enters mid, exits late)
+    // Text 2
     scrollTl.fromTo(".road-text-2", 
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.15, ease: "power2.out" },
-      0.5
+      { y: '100vh', opacity: 0 },
+      { y: '20vh', opacity: 1, duration: 0.15, ease: "power2.out" },
+      0.35
     );
     scrollTl.to(".road-text-2", 
-      { y: -100, opacity: 0, duration: 0.15, ease: "power2.in" },
-      0.8
+      { y: '-50vh', opacity: 0, duration: 0.15, ease: "power2.in" },
+      0.55
     );
+
+    // Text 3
+    scrollTl.fromTo(".road-text-3", 
+      { y: '100vh', opacity: 0 },
+      { y: '20vh', opacity: 1, duration: 0.15, ease: "power2.out" },
+      0.65
+    );
+    scrollTl.to(".road-text-3", 
+      { y: '-50vh', opacity: 0, duration: 0.15, ease: "power2.in" },
+      0.85
+    );
+
+    // Fade out the entire section at the end to seamlessly transition to the next static section
+    scrollTl.to(stickyRef.current, {
+      opacity: 0,
+      duration: 0.1,
+      ease: "power2.inOut"
+    }, 0.9);
 
   }, { scope: containerRef, dependencies: [reducedMotion] });
 
@@ -84,11 +106,10 @@ export function RoadJourney() {
     <section ref={containerRef} className="road-scroll-container relative w-full h-[400vh] bg-bg -mt-[100vh] z-10 pointer-events-none">
       <div ref={stickyRef} className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center pointer-events-auto bg-bg">
         
-        {/* Panning Wrapper (moves up as user scrolls) */}
-        <div className="road-pan-wrapper absolute inset-0 flex items-center justify-center pointer-events-none">
+        {/* Panning Wrapper (moves up as user scrolls) - Shifted Right */}
+        <div className="road-pan-wrapper absolute inset-0 left-[20vw] md:left-[35vw] flex items-center justify-center pointer-events-none">
           
           {/* Rotated Container for Road and SVG (Top-to-Bottom) */}
-          {/* Using 200vw width and 100vw height so when rotated 90deg, it spans 100vw wide and 200vw tall */}
           <div className="relative w-[200vw] h-[100vw] flex items-center justify-center overflow-visible origin-center rotate-90 pointer-events-none">
             
             {/* Background Road Image */}
@@ -119,46 +140,65 @@ export function RoadJourney() {
                 />
               </g>
               
-              {/* Moving Truck Object embedded in SVG to guarantee coordinate alignment */}
+              {/* Moving Truck Object (Increased Size) */}
               <image 
                 ref={truckRef}
                 href="/truck-image.png"
-                width="250"
-                height="350"
+                width="350"
+                height="490"
               />
             </svg>
           </div>
         </div>
 
-        {/* Top/Bottom Gradient Overlays for Smooth Fading */}
+        {/* Blending Gradients */}
         <div className="absolute inset-0 pointer-events-none z-10 flex flex-col justify-between">
-          <div className="w-full h-32 bg-gradient-to-b from-bg to-transparent"></div>
-          <div className="w-full h-48 bg-gradient-to-t from-bg to-transparent"></div>
+          <div className="w-full h-[25vh] bg-gradient-to-b from-bg to-transparent"></div>
+          <div className="w-full h-[25vh] bg-gradient-to-t from-bg to-transparent"></div>
         </div>
+        {/* Left Edge Gradient to smoothly blend the shifted road into the background */}
+        <div className="absolute inset-y-0 left-0 w-[40vw] bg-gradient-to-r from-bg via-bg to-transparent pointer-events-none z-10"></div>
 
-        {/* Text Layers */}
-        <div className="absolute inset-0 mx-auto w-full max-w-7xl px-4 md:px-[clamp(1.25rem,4vw,4rem)] z-20 pointer-events-none flex items-center">
+        {/* Text Layers (Left Side Parallax) */}
+        <div className="absolute inset-0 mx-auto w-full max-w-7xl px-6 md:px-[clamp(1.25rem,4vw,4rem)] z-20 pointer-events-none">
           
-          {/* Left Text Block */}
-          <div className="road-text-1 absolute left-4 md:left-[clamp(1.25rem,4vw,4rem)] w-full max-w-md pointer-events-auto opacity-0 translate-y-[100px]">
-            <Eyebrow className="mb-4 text-accent">Intelligent Routing</Eyebrow>
-            <h2 className="text-display-m font-display text-text mb-4 leading-tight drop-shadow-sm">
-              Navigating Complex Routes.
-            </h2>
-            <p className="text-text-body text-base md:text-lg mb-8 font-medium drop-shadow-sm">
-              Our advanced algorithms calculate the most efficient path for your fleet, adapting to live traffic and weather conditions seamlessly.
-            </p>
+          {/* Text 1 */}
+          <div className="road-text-1 absolute left-6 md:left-[clamp(1.25rem,4vw,4rem)] w-full max-w-md pointer-events-auto opacity-0 flex flex-col justify-center h-full">
+            <div>
+              <Eyebrow className="mb-4 text-accent">Intelligent Routing</Eyebrow>
+              <h2 className="text-display-m font-display text-text mb-4 leading-tight drop-shadow-sm">
+                Navigating Complex Routes.
+              </h2>
+              <p className="text-text-body text-base md:text-lg mb-8 font-medium drop-shadow-sm">
+                Our advanced algorithms calculate the most efficient path for your fleet, adapting to live traffic and weather conditions seamlessly.
+              </p>
+            </div>
           </div>
 
-          {/* Right Text Block */}
-          <div className="road-text-2 absolute right-4 md:right-[clamp(1.25rem,4vw,4rem)] w-full max-w-md pointer-events-auto text-left md:text-right opacity-0 translate-y-[100px]">
-            <Eyebrow className="mb-4 text-accent">Smooth Journey</Eyebrow>
-            <h2 className="text-display-m font-display text-text mb-4 leading-tight drop-shadow-sm">
-              Always on Track.
-            </h2>
-            <p className="text-text-body text-base md:text-lg mb-8 font-medium drop-shadow-sm ml-auto">
-              Experience the peace of mind that comes with a dispatch service dedicated to keeping your trucks moving forward, no matter the obstacles.
-            </p>
+          {/* Text 2 */}
+          <div className="road-text-2 absolute left-6 md:left-[clamp(1.25rem,4vw,4rem)] w-full max-w-md pointer-events-auto opacity-0 flex flex-col justify-center h-full">
+            <div>
+              <Eyebrow className="mb-4 text-accent">Smooth Journey</Eyebrow>
+              <h2 className="text-display-m font-display text-text mb-4 leading-tight drop-shadow-sm">
+                Always on Track.
+              </h2>
+              <p className="text-text-body text-base md:text-lg mb-8 font-medium drop-shadow-sm">
+                Experience the peace of mind that comes with a dispatch service dedicated to keeping your trucks moving forward, no matter the obstacles.
+              </p>
+            </div>
+          </div>
+
+          {/* Text 3 */}
+          <div className="road-text-3 absolute left-6 md:left-[clamp(1.25rem,4vw,4rem)] w-full max-w-md pointer-events-auto opacity-0 flex flex-col justify-center h-full">
+            <div>
+              <Eyebrow className="mb-4 text-accent">Reliable Delivery</Eyebrow>
+              <h2 className="text-display-m font-display text-text mb-4 leading-tight drop-shadow-sm">
+                On Time, Every Time.
+              </h2>
+              <p className="text-text-body text-base md:text-lg mb-8 font-medium drop-shadow-sm">
+                From pickup to drop-off, our robust tracking ensures you and your clients are always updated on the exact location of the freight.
+              </p>
+            </div>
           </div>
 
         </div>

@@ -138,7 +138,7 @@ export default function ServicesShowcase() {
         {/* Adjusted vertical translation from -93% to -88% to close the gap with the road line */}
         <div 
           ref={truckRef}
-          className="absolute top-[70%] left-0 -translate-y-[88%] z-20 w-[70vw] md:w-[50vw] max-w-[900px] pointer-events-none drop-shadow-2xl"
+          className="absolute top-[68%] left-0 -translate-y-[88%] z-20 w-[70vw] md:w-[50vw] max-w-[900px] pointer-events-none drop-shadow-2xl"
         >
           <Image 
             src="/truck.png"
