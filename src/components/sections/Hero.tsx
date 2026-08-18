@@ -1,132 +1,262 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TruckScene } from "../TruckScene";
-import { Button } from "../ui/Button";
-import { Eyebrow } from "../ui/Eyebrow";
-import { HudCard } from "../scene/HudCard";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const MARQUEE_ITEMS = [
+  "EFFICIENCY", "RELIABILITY", "INNOVATION", "PRECISION",
+  "SAFETY", "TRACKING", "LOGISTICS", "CUSTOMIZATION",
+  "DEDICATION", "PERFORMANCE",
+];
+
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const stickyRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
+  const [mousePos, setMousePos] = useState({ x: 500, y: 500 });
 
   useEffect(() => {
-    if (!containerRef.current || !stickyRef.current) return;
-
+    if (!containerRef.current) return;
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
       if (reducedMotion) {
-        tl.from(".hero-anim", { opacity: 0, duration: 0.12, stagger: 0.02, ease: "none" });
+        tl.from([".hero-h1-line", ".hero-sub", ".hero-cta", ".hero-ghost"], {
+          opacity: 0, duration: 0.15, stagger: 0.04,
+        });
         return;
       }
-
-      // 1. Initial Entrance Animation
-      tl.from(".hero-anim-h1", { y: "100%", duration: 0.7, stagger: 0.09, ease: "power4.out" }, 0.1)
-        .from(".hero-anim-p", { opacity: 0, y: 16, duration: 0.6 }, 0.3)
-        .from(".hero-anim-cta", { opacity: 0, y: 16, duration: 0.6 }, 0.4)
-        .from(".hero-anim-trust", { opacity: 0, duration: 0.6 }, 0.5)
-        .from(".scene-wrapper", { opacity: 0, duration: 1.0 }, 0.3);
-
-      // 2. Scroll-driven Text Transitions (Parallax)
-      // The container is 300vh.
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.6,
-        }
-      });
-
-      // From 0 to 40% scroll: Text 1 moves up and fades out
-      scrollTl.to(".hero-text-1", { y: -100, opacity: 0, ease: "power2.in" }, 0);
-
-      // From 30% to 70% scroll: Text 2 enters from bottom and stays
-      scrollTl.fromTo(".hero-text-2", 
-        { y: 100, opacity: 0 }, 
-        { y: 0, opacity: 1, ease: "power2.out", duration: 0.4 }, 
-        0.3 // starts at 30% of scroll
-      );
-
-      // Fade out the entire hero sticky content at the very end to seamlessly reveal the next section
-      scrollTl.to(stickyRef.current, {
-        opacity: 0,
-        duration: 0.1,
-        ease: "power2.inOut"
-      }, 0.9);
-      
+      tl.from(".hero-ghost",    { opacity: 0, duration: 1.0 }, 0)
+        .from(".hero-h1-line",  { opacity: 0, y: 30, duration: 0.8, stagger: 0.1, ease: "power3.out" }, 0.2)
+        .from(".hero-sub",      { opacity: 0, y: 15, duration: 0.6 }, 0.6)
+        .from(".hero-cta",      { opacity: 0, y: 15, duration: 0.6 }, 0.7)
+        .from(".hero-truck",    { opacity: 0, x: 80, duration: 1.2, ease: "power3.out" }, 0.3);
     }, containerRef);
-
     return () => ctx.revert();
   }, [reducedMotion]);
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (rect) {
+      setMousePos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    }
+  };
+
   return (
-    <section ref={containerRef} className="hero-scroll-container relative w-full h-[300vh] z-30 pointer-events-none bg-transparent">
-      <div ref={stickyRef} className="sticky top-0 w-full h-screen min-h-[750px] overflow-hidden flex items-center pt-24 lg:pt-0 pointer-events-auto bg-surface">
-        
-        {/* Background Scene (Handles its own scroll scrubbing via TruckScene) */}
-        <div className="absolute inset-0 z-0">
-          <TruckScene />
-        </div>
+    <section
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      className="relative w-full h-screen overflow-hidden bg-black"
+    >
+      {/* ── Base Grid background ── */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 opacity-60"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(127,224,77,0.15) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(127,224,77,0.15) 1px, transparent 1px)
+          `,
+          backgroundSize: "100px 100px",
+          backgroundPosition: "center top",
+        }}
+      />
 
+      {/* ── Interactive Hover Grid (Spotlight effect) ── */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.25) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.25) 1px, transparent 1px)
+          `,
+          backgroundSize: "100px 100px",
+          backgroundPosition: "center top",
+          maskImage: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, black, transparent)`,
+          WebkitMaskImage: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, black, transparent)`,
+        }}
+      />
 
+      {/* ── Large green glow — left/center behind text to match reference ── */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[1]"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 80% at 40% 50%, rgba(127,224,77,0.4) 0%, rgba(127,224,77,0.15) 40%, transparent 70%)",
+        }}
+      />
 
-        {/* Content Column */}
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-[clamp(1.25rem,4vw,4rem)] relative z-20 pointer-events-none h-full flex items-center">
-          <div className="relative w-full lg:w-7/12 pointer-events-auto h-full flex flex-col justify-center">
+      {/* ── Ghost word "NEXAR" — tall font, dark gray, resting on bottom ── */}
+      <div
+        aria-hidden="true"
+        className="hero-ghost pointer-events-none absolute inset-0 z-[2] flex items-end justify-center overflow-hidden pb-[80px]" // 80px padding bottom to sit on carousel
+      >
+        <span
+          className="uppercase select-none whitespace-nowrap leading-[0.8]"
+          style={{
+            fontFamily: "Impact, 'Arial Narrow Bold', 'Oswald', sans-serif", // Tall, condensed font
+            fontSize: "clamp(15rem, 33vw, 40rem)",
+            background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.0) 80%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            letterSpacing: "0.02em",
+            transform: "translateX(-2%)", // slightly off-center
+          }}
+        >
+          NEXAR
+        </span>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════
+          Main layout — full screen, split into 2 columns
+      ═══════════════════════════════════════════════════ */}
+      <div
+        className="relative z-[3] w-full h-full flex flex-col lg:flex-row pb-[80px]" // 80px padding bottom for carousel
+        style={{ paddingTop: "var(--navbar-h, 80px)" }}
+      >
+        {/* ══════════════════════════════
+            LEFT — Text Content
+        ══════════════════════════════ */}
+        <div className="flex flex-col justify-center px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 w-full lg:w-[55%] z-10">
+          
+          {/* Headline — 3 lines, glow added */}
+          <h1
+            className="font-display font-black uppercase text-white leading-[1.05] mb-6"
+            style={{
+              fontSize: "clamp(2rem, 5vw, 6rem)",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            <div className="pb-1 w-max">
+              <span 
+                className="hero-h1-line block whitespace-nowrap"
+                style={{ filter: "drop-shadow(0 0 15px rgba(255,255,255,0.15))" }}
+              >
+                DISPATCH SERVICES
+              </span>
+            </div>
+            <div className="pb-1 w-max">
+              <span 
+                className="hero-h1-line block whitespace-nowrap"
+                style={{ filter: "drop-shadow(0 0 15px rgba(255,255,255,0.15))" }}
+              >
+                THAT MAXIMIZE
+              </span>
+            </div>
             
-            {/* Phase 1 Text */}
-            <div className="hero-text-1 absolute inset-x-0 flex flex-col items-start justify-center">           
-              <h1 className="text-display-l font-display text-text mb-6 leading-[1.1] drop-shadow-md">
-                <div className="overflow-hidden"><div className="hero-anim-h1 hero-anim">Keep Your Trucks Moving.</div></div>
-                <div className="overflow-hidden"><div className="hero-anim-h1 hero-anim">We Handle the Rest.</div></div>
-              </h1>
-              
-              <p className="hero-anim-p hero-anim text-text-body text-lg max-w-xl mb-10 font-medium drop-shadow-sm">
-                A premium dispatch service built to keep owner-operators and small fleets moving. We handle the paperwork, negotiations, and route planning so you can focus on the drive.
-              </p>
-              
-              <div className="hero-anim-cta hero-anim flex flex-col sm:flex-row gap-4 mb-16 w-full sm:w-auto">
-                <Button size="lg" variant="primary" className="w-full sm:w-auto justify-center">Get Started</Button>
-                <Button size="lg" variant="secondary" className="w-full sm:w-auto justify-center bg-surface/50 backdrop-blur-md border-line/40 hover:bg-surface/80">Talk to a Dispatcher</Button>
-              </div>
-              
-              <div className="hero-anim-trust hero-anim flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] sm:text-xs font-mono text-text-muted uppercase tracking-label border-t border-line/50 pt-6 w-full font-semibold">
-                <span>Dry Van</span>
-                <span className="w-1 h-1 rounded-full bg-accent/50 hidden sm:block"></span>
-                <span>Reefer</span>
-                <span className="w-1 h-1 rounded-full bg-accent/50 hidden sm:block"></span>
-                <span>Flatbed</span>
-                <span className="w-1 h-1 rounded-full bg-accent/50 hidden sm:block"></span>
-                <span>Step Deck</span>
-              </div>
+            {/* Third line: Highlighted gradient text with glow */}
+            <div className="pt-2 pb-2 w-max">
+              <span 
+                className="hero-h1-line block whitespace-nowrap"
+                style={{
+                  background: "linear-gradient(90deg, #7fe04d 0%, #F5B131 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  filter: "drop-shadow(0 0 25px rgba(127,224,77,0.45)) drop-shadow(0 0 45px rgba(245,177,49,0.3))",
+                }}
+              >
+                YOUR REVENUE!
+              </span>
             </div>
+          </h1>
 
-            {/* Phase 2 Text (Enters as you scroll) */}
-            <div className="hero-text-2 absolute inset-x-0 flex flex-col items-start justify-center opacity-0 translate-y-[100px]">
-              <h2 className="text-display-l font-display text-text mb-6 leading-[1.1] drop-shadow-md">
-                Precision Loading. <br />
-                Seamless Logistics.
-              </h2>
-              <p className="text-text-body text-lg max-w-xl mb-10 font-medium drop-shadow-sm">
-                As your container is loaded, our team is already negotiating the next top-paying freight. 
-                Zero downtime.
-              </p>
-              <Button size="lg" variant="primary" className="w-full sm:w-auto justify-center">
-                Get Started
-              </Button>
-            </div>
+          {/* Sub-headline */}
+          <p
+            className="hero-sub text-[#aaa] font-medium mb-10 max-w-lg"
+            style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.15rem)", lineHeight: 1.6 }}
+          >
+            While You&apos;re Fighting for{" "}
+            <strong className="text-white font-bold">$1.80/Mile</strong>,{" "}
+            We&apos;re Getting Our Drivers{" "}
+            <strong
+              style={{
+                background: "linear-gradient(90deg, #7fe04d, #F5B131)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              $2.30+
+            </strong>
+          </p>
 
+          {/* CTA Buttons */}
+          <div className="hero-cta flex items-center gap-4 mb-6">
+            <a
+              href="#services"
+              className="group relative inline-flex items-center justify-center rounded-full px-8 py-3.5 sm:px-10 sm:py-4 text-sm sm:text-[15px] font-bold text-black bg-white transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.3)] hover:scale-105 hover:bg-gray-50"
+            >
+              Get Started Free
+            </a>
+            <a
+              href="#how-it-works"
+              className="group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white text-black transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.3)] hover:scale-110 hover:bg-gray-50 shrink-0"
+              aria-label="Talk to a Dispatcher"
+            >
+              <ArrowUpRight size={24} strokeWidth={2.5} className="group-hover:rotate-45 transition-transform duration-300" />
+            </a>
           </div>
         </div>
 
+        {/* ══════════════════════════════
+            RIGHT — Truck Image
+        ══════════════════════════════ */}
+        <div className="hero-truck absolute right-[-5%] lg:right-[-10%] xl:right-[-12%] bottom-[80px] flex items-end justify-end pointer-events-none w-[85%] md:w-[75%] lg:w-[60%] xl:w-[55%] z-[5]">
+          <Image
+            src="/fullrange-mtn-removebg-preview3.png?v=2"
+            alt="Nexar Dispatch — Semi Truck"
+            width={1600}
+            height={1000}
+            priority
+            unoptimized
+            className="w-full h-auto object-contain object-bottom select-none drop-shadow-2xl"
+            style={{
+              maxHeight: "70vh",
+              // Realistic drop shadow instead of neon glow, matching reference
+              filter: "drop-shadow(-20px 30px 60px rgba(0,0,0,0.95)) drop-shadow(-5px 15px 25px rgba(0,0,0,0.85)) drop-shadow(0 0 50px rgba(127,224,77,0.2))",
+            }}
+          />
+        </div>
+      </div>
+
+      {/* ═══════════════════════════════════════
+          Infinite Marquee Strip 
+          Fixed at bottom of screen with VERTICAL gradient
+      ═══════════════════════════════════════ */}
+      <div
+        className="absolute bottom-0 left-0 w-full z-[10] overflow-hidden shadow-[0_-10px_30px_rgba(0,0,0,0.5)] border-t border-white/10"
+        style={{
+          // Vertical gradient: top is green, bottom is yellow
+          background: "linear-gradient(180deg, #7fe04d 0%, #F5B131 100%)",
+        }}
+        aria-label="Services carousel"
+      >
+        <div
+          className="animate-marquee flex items-center whitespace-nowrap py-5 md:py-7 hover:[animation-play-state:paused] cursor-pointer"
+          style={{ willChange: "transform" }}
+        >
+          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
+            <span key={i} className="inline-flex items-center shrink-0">
+              <span className="font-display text-[16px] sm:text-[22px] md:text-[28px] font-black uppercase tracking-[0.1em] text-[#1a1a1a] px-6 sm:px-10">
+                {item}
+              </span>
+              {/* Star separator ✦ */}
+              <span className="text-[#1a1a1a] text-xl sm:text-2xl md:text-3xl mx-2" aria-hidden="true">
+                ✦
+              </span>
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

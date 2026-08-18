@@ -3,28 +3,26 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Button } from "../ui/Button";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { cn } from "../ui/Button";
 import Image from "next/image";
 
 const LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Equipment", href: "#equipment" },
-  { label: "About", href: "#about" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home",         href: "#"             },
+  { label: "About us",    href: "#about"         },
+  { label: "Services",    href: "#services"      },
+  { label: "How it works",href: "#how-it-works"  },
+  { label: "Equipment",   href: "#equipment"     },
+  { label: "Contact us",  href: "#contact"       },
 ];
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled,    setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 80);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
@@ -32,22 +30,13 @@ export function Navbar() {
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && mobileOpen) {
-        setMobileOpen(false);
-      }
+      if (e.key === "Escape" && mobileOpen) setMobileOpen(false);
     };
     window.addEventListener("keydown", handleEscape);
-    
-    // Prevent scrolling when mobile menu is open
-    if (mobileOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
       window.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [mobileOpen]);
 
@@ -55,76 +44,127 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled 
-            ? "bg-white/80 backdrop-blur-xl border-b border-line shadow-sm py-4" 
-            : "bg-transparent border-b border-transparent py-6"
+          "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 transition-all duration-300",
+          scrolled ? "py-3 bg-black/80 backdrop-blur-md" : "py-5 bg-transparent"
         )}
       >
-        <div className="mx-auto max-w-7xl px-4 md:px-[clamp(1.25rem,4vw,4rem)] flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Nexar Dispatch" width={180} height={40} className="object-contain w-auto h-[32px] md:h-[40px]" style={{ width: "auto" }} />
-          </a>
+        {/* ── 1. Logo (far left) ── */}
+        <a href="#" className="flex items-center gap-2.5 shrink-0 z-10">
+          <Image
+            src="/logo.png"
+            alt="Nexar Dispatch"
+            width={180}
+            height={40}
+            className="object-contain w-auto h-[32px] md:h-[40px] brightness-0 invert"
+            style={{ width: "auto" }}
+          />
+        </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            <div className="flex items-center gap-6">
-              {LINKS.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-text-body font-medium hover:text-accent text-sm transition-colors duration-quick ease-quick"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-            <Button size="md" variant="primary" className="shadow-[0_4px_14px_rgba(4,120,87,0.3)] hover:shadow-[0_6px_20px_rgba(16,185,129,0.4)]">Get Started</Button>
-          </nav>
+        {/* ── 2. Nav pill (center) — hidden on mobile ── */}
+        <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2">
+          <div className="flex items-center gap-2 rounded-full bg-[#333333]/60 backdrop-blur-md px-6 py-3 shadow-lg border border-white/5">
+            {LINKS.map((link, i) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className={cn(
+                  "group relative flex items-center gap-2 rounded-full px-3 py-1 text-[14px] font-medium whitespace-nowrap transition-colors duration-200",
+                  i === 0
+                    ? "text-white"
+                    : "text-white/70 hover:text-white"
+                )}
+              >
+                {i === 0 && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
+                )}
+                {link.label}
+                {/* Animated underline on hover */}
+                {i !== 0 && (
+                  <span className="absolute left-3 right-3 -bottom-1 h-[2px] rounded-full bg-white/80 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out" />
+                )}
+              </a>
+            ))}
+          </div>
+        </nav>
 
-          {/* Mobile Toggle */}
-          <button
-            className="lg:hidden p-2 -mr-2 text-text-body hover:text-accent transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
+        {/* ── 3. CTA Buttons (far right) — hidden on mobile ── */}
+        <div className="hidden lg:flex items-center gap-6 shrink-0 z-10">
+          <a
+            href="#contact"
+            className="text-[15px] font-medium text-white hover:text-white/80 transition-colors duration-150"
           >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            Talk to us
+          </a>
+          <a
+            href="#services"
+            className="inline-flex items-center justify-center rounded-full px-7 py-2.5 text-[15px] font-bold text-black shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            style={{
+              background: "linear-gradient(90deg, #7fe04d 0%, #F5B131 100%)"
+            }}
+          >
+            Get Started
+          </a>
         </div>
+
+        {/* ── Mobile toggle ── */}
+        <button
+          className="lg:hidden p-2 text-white/70 hover:text-white transition-colors z-10"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </header>
 
-      {/* Mobile Menu Panel */}
+      {/* ── Mobile menu ── */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: prefersReducedMotion ? 0.12 : 0.3 }}
-            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-[24px] pt-24 px-4 pb-8 flex flex-col justify-between lg:hidden"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: prefersReducedMotion ? 0.1 : 0.22 }}
+            className="fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl pt-24 px-6 pb-8 flex flex-col justify-between lg:hidden"
             role="dialog"
             aria-modal="true"
           >
-            <nav className="flex flex-col gap-6 mt-8">
+            <nav className="flex flex-col gap-1 mt-4">
               {LINKS.map((link, i) => (
                 <motion.a
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: -20 }}
-                  animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
-                  transition={{ delay: prefersReducedMotion ? 0 : i * 0.04, duration: 0.2 }}
-                  className="text-display-l text-text font-display font-bold border-b border-line pb-4"
+                  initial={{ opacity: 0, x: -14 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.04, duration: 0.18 }}
+                  className="flex items-center gap-3 text-2xl font-display font-black text-white border-b border-white/8 py-4 uppercase tracking-tight transition-colors"
                 >
+                  {i === 0 && (
+                    <span className="w-2 h-2 rounded-full bg-white shrink-0" />
+                  )}
                   {link.label}
                 </motion.a>
               ))}
             </nav>
-            <div className="pt-8">
-              <Button size="lg" className="w-full shadow-[0_4px_14px_rgba(4,120,87,0.3)]" onClick={() => setMobileOpen(false)}>
+            <div className="flex flex-col gap-3 pt-8">
+              <a
+                href="#services"
+                onClick={() => setMobileOpen(false)}
+                className="w-full text-center rounded-full py-4 text-lg font-bold text-black"
+                style={{
+                  background: "linear-gradient(90deg, #7fe04d 0%, #F5B131 100%)"
+                }}
+              >
                 Get Started
-              </Button>
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setMobileOpen(false)}
+                className="w-full text-center rounded-full py-4 text-lg font-semibold text-white border border-white/20"
+              >
+                Talk to us
+              </a>
             </div>
           </motion.div>
         )}

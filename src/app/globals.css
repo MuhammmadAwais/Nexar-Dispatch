@@ -1,20 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #FFFFFF; /* Clean White */
-  --color-surface: #F8FAFC; /* Slate 50 */
-  --color-surface-2: #F1F5F9; /* Slate 100 */
-  --color-line: #E2E8F0;
-  --color-line-bright: #CBD5E1;
-  --color-text: #1F2937; /* Dark Charcoal */
-  --color-text-body: #334155; /* Slate 700 */
-  --color-text-muted: #64748B;
-  --color-paper: #FFFFFF;
-  --color-accent: #047857; /* Deep Emerald Green for buttons/accents */
-  --color-accent-2: #10B981; /* Vibrant Jade for hover states */
-  --color-charcoal: #1F2937; /* Dark Charcoal */
-  --color-ok: #16A34A;
+  /* ── Dark Theme Palette ── */
+  --color-bg: #000000;
+  --color-surface: #0a0a0a;
+  --color-surface-2: #111111;
+  --color-line: #1e1e1e;
+  --color-line-bright: #2a2a2a;
+  --color-text: #ffffff;
+  --color-text-body: #cccccc;
+  --color-text-muted: #888888;
+  --color-paper: #0a0a0a;
 
+  /* ── Brand Accents ── */
+  --color-accent: #7fe04d;      /* Neon green — primary CTA, glow */
+  --color-accent-2: #F5B131;    /* Golden yellow — secondary accent */
+  --color-charcoal: #111111;
+  --color-ok: #7fe04d;
+
+  /* ── Typography ── */
   --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, monospace;
@@ -43,6 +47,10 @@
 }
 
 @layer base {
+  :root {
+    --navbar-h: 64px;
+  }
+
   body {
     background-color: var(--color-bg);
     color: var(--color-text-body);
@@ -51,7 +59,7 @@
   
   ::selection {
     background-color: var(--color-accent);
-    color: var(--color-text);
+    color: #000;
   }
   
   *:focus-visible {
@@ -68,7 +76,7 @@
   
   h1 {
     font-size: clamp(3rem, 6vw, 6rem);
-    line-height: 1.1;
+    line-height: 1.05;
     font-weight: 900;
     text-transform: uppercase;
   }
@@ -82,4 +90,23 @@
     font-weight: 500;
     line-height: 1.6;
   }
+}
+
+/* ── Keyframe Animations ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 1; }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3.5s ease-in-out infinite;
 }

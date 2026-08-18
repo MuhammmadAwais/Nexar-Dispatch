@@ -92,29 +92,29 @@ export default function ServicesShowcase() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative w-full h-[400vh] -mt-[100vh] z-15 pointer-events-none">
+    <section ref={containerRef} className="relative w-full h-[400vh] z-10 pointer-events-none bg-black">
       <div ref={stickyRef} className="sticky top-0 w-full h-screen overflow-hidden flex flex-col pointer-events-auto">
         
-        {/* TOP LIGHT HALF */}
-        <div className="relative w-full h-[60%] bg-[#F3F4F6] flex items-center justify-center overflow-hidden">
+        {/* TOP DARK HALF */}
+        <div className="relative w-full h-[60%] bg-black flex items-center justify-center overflow-hidden">
           {/* BACKGROUND TEXT */}
           <div 
             ref={bgTextRef} 
-            className="absolute whitespace-nowrap text-[25vw] md:text-[22vw] font-black text-gray-300/40 uppercase tracking-tighter select-none z-0"
-            style={{ transform: 'translateX(-5%)' }}
+            className="absolute whitespace-nowrap text-[25vw] md:text-[22vw] font-black uppercase tracking-tighter select-none z-0"
+            style={{ transform: 'translateX(-5%)', color: '#666', opacity: 0.18 }}
           >
             SERVICES
           </div>
           
-          {/* Top Left Speed indicator / Label */}
-          <div className="absolute top-8 left-8 text-xs md:text-sm font-bold tracking-widest text-gray-400 z-10 uppercase flex items-center gap-2">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+          {/* Top Left indicator / Label */}
+          <div className="absolute top-8 left-8 text-xs md:text-sm font-bold tracking-widest text-[#888] z-10 uppercase flex items-center gap-2">
+            <span className="w-2 h-2 bg-[#7fe04d] rounded-full animate-pulse"></span>
             Our Expertise
           </div>
         </div>
 
-        {/* BOTTOM DARK HALF */}
-        <div className="relative w-full h-[40%] bg-[#1F2937] flex items-center overflow-hidden border-t border-primary/20">
+        {/* BOTTOM DARKER HALF */}
+        <div className="relative w-full h-[40%] bg-[#050505] flex items-center overflow-hidden border-t border-[#7fe04d]/15">
           
           {/* Services Scroller */}
           <div ref={servicesWrapperRef} className="flex gap-16 md:gap-32 px-[10vw] min-w-max z-10 absolute top-1/2 -translate-y-1/2">
@@ -123,10 +123,10 @@ export default function ServicesShowcase() {
                 <div className="mb-2 transition-transform duration-300 group-hover:-translate-y-2 opacity-80 group-hover:opacity-100">
                   {service.icon}
                 </div>
-                <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight group-hover:text-primary transition-colors">
+                <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight group-hover:text-[#7fe04d] transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-sm md:text-base text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                <p className="text-sm md:text-base text-[#888] leading-relaxed group-hover:text-[#aaa] transition-colors">
                   {service.description}
                 </p>
               </div>

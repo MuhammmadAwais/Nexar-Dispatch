@@ -26,6 +26,7 @@ export default function Home() {
       <Navbar />
       <main className="flex min-h-screen flex-col">
         <Hero />
+        <HowItWorks />
         <TrustBar />
         <ServicesShowcase />
         <RoadJourney />
@@ -33,7 +34,6 @@ export default function Home() {
         <Solution />
         <Services />
         <Equipment />
-        <HowItWorks />
         <LoadBoard />
         <RouteMap />
         <WhyNexar />

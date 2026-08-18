@@ -103,8 +103,8 @@ export function RoadJourney() {
   }, { scope: containerRef, dependencies: [reducedMotion] });
 
   return (
-    <section ref={containerRef} className="road-scroll-container relative w-full h-[400vh] bg-bg -mt-[100vh] z-10 pointer-events-none">
-      <div ref={stickyRef} className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center pointer-events-auto bg-bg">
+    <section ref={containerRef} className="road-scroll-container relative w-full h-[400vh] bg-black z-10 pointer-events-none">
+      <div ref={stickyRef} className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center pointer-events-auto bg-black">
         
         {/* Panning Wrapper (moves up as user scrolls) - Shifted Right */}
         <div className="road-pan-wrapper absolute inset-0 left-[20vw] md:left-[35vw] flex items-center justify-center pointer-events-none">
@@ -153,11 +153,11 @@ export function RoadJourney() {
 
         {/* Blending Gradients */}
         <div className="absolute inset-0 pointer-events-none z-10 flex flex-col justify-between">
-          <div className="w-full h-[25vh] bg-gradient-to-b from-bg to-transparent"></div>
-          <div className="w-full h-[25vh] bg-gradient-to-t from-bg to-transparent"></div>
+          <div className="w-full h-[25vh] bg-gradient-to-b from-black to-transparent"></div>
+          <div className="w-full h-[25vh] bg-gradient-to-t from-black to-transparent"></div>
         </div>
         {/* Left Edge Gradient to smoothly blend the shifted road into the background */}
-        <div className="absolute inset-y-0 left-0 w-[40vw] bg-gradient-to-r from-bg via-bg to-transparent pointer-events-none z-10"></div>
+        <div className="absolute inset-y-0 left-0 w-[40vw] bg-gradient-to-r from-black via-black to-transparent pointer-events-none z-10"></div>
 
         {/* Text Layers (Left Side Parallax) */}
         <div className="absolute inset-0 mx-auto w-full max-w-7xl px-6 md:px-[clamp(1.25rem,4vw,4rem)] z-20 pointer-events-none">

@@ -50,11 +50,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         style={{ x: prefersReducedMotion ? 0 : mouseXSpring, y: prefersReducedMotion ? 0 : mouseYSpring }}
         whileTap={{ scale: prefersReducedMotion ? 1 : 0.98 }}
         className={cn(
-          "relative inline-flex items-center justify-center font-body rounded-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg transition-colors duration-quick ease-quick",
+          "relative inline-flex items-center justify-center font-body rounded-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg transition-all duration-quick ease-quick font-bold uppercase tracking-wide",
           {
-            "bg-accent text-white hover:bg-accent-2 shadow-[0_4px_14px_rgba(4,120,87,0.25)] hover:shadow-[0_6px_20px_rgba(16,185,129,0.35)]": variant === "primary",
-            "bg-surface border border-line text-text hover:border-accent hover:text-accent hover:bg-surface-2": variant === "secondary",
-            "px-5 py-2 text-sm": size === "md",
+            "bg-accent text-black hover:bg-[#8fef5d] shadow-[0_0_24px_rgba(127,224,77,0.4)] hover:shadow-[0_0_36px_rgba(127,224,77,0.6)]": variant === "primary",
+            "bg-white/5 border border-white/20 text-white hover:border-white/40 hover:bg-white/10 backdrop-blur-sm": variant === "secondary",
+            "px-5 py-2.5 text-sm": size === "md",
             "px-8 py-4 text-base": size === "lg",
           },
           className
