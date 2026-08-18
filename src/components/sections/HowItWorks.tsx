@@ -62,8 +62,8 @@ function StepCard({ step, index }: { step: (typeof STEPS)[0]; index: number }) {
     <div
       className={`hiw-card hiw-card-${index} relative rounded-2xl p-6 md:p-7`}
       style={{
-        background: "linear-gradient(135deg, #1a1a1a 0%, #111111 60%, #0d0d0d 100%)",
-        border: "1px solid rgba(255,255,255,0.07)",
+        background: "rgba(6, 18, 14, 0.8)",
+        border: "1px solid rgba(80, 200, 120, 0.15)",
         boxShadow: "0 4px 40px rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.04) inset, 0 0 0 1px rgba(255,255,255,0.03)",
         backdropFilter: "blur(12px)",
         maxWidth: 380,
@@ -76,8 +76,8 @@ function StepCard({ step, index }: { step: (typeof STEPS)[0]; index: number }) {
         style={{
           background:
             step.side === "right"
-              ? "radial-gradient(ellipse 80% 60% at 90% 10%, rgba(127,224,77,0.07) 0%, transparent 70%)"
-              : "radial-gradient(ellipse 80% 60% at 10% 10%, rgba(127,224,77,0.07) 0%, transparent 70%)",
+              ? "radial-gradient(ellipse 80% 60% at 90% 10%, rgba(80,200,120,0.07) 0%, transparent 70%)"
+              : "radial-gradient(ellipse 80% 60% at 10% 10%, rgba(80,200,120,0.07) 0%, transparent 70%)",
         }}
       />
       {/* Step badge */}
@@ -85,7 +85,7 @@ function StepCard({ step, index }: { step: (typeof STEPS)[0]; index: number }) {
         <span
           className="inline-flex items-center px-3 py-1 rounded-full text-xs font-black tracking-wider uppercase"
           style={{
-            background: "linear-gradient(90deg, #7fe04d 0%, #a8f060 100%)",
+            background: "linear-gradient(90deg, #50C878 0%, #a8f060 100%)",
             color: "#0a1f00",
             boxShadow: "0 0 12px rgba(127,224,77,0.55), 0 0 28px rgba(127,224,77,0.22)",
           }}
@@ -95,14 +95,14 @@ function StepCard({ step, index }: { step: (typeof STEPS)[0]; index: number }) {
       </div>
       {/* Title */}
       <h3
-        className="relative z-10 font-display font-black text-white mb-3 leading-tight"
+        className="relative z-10 font-display font-black text-[#F1F5F9] mb-3 leading-tight"
         style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.2rem)" }}
       >
         {step.title}
       </h3>
       {/* Body */}
       <p
-        className="relative z-10 text-[#777] leading-relaxed"
+        className="relative z-10 text-[#94A3B8] leading-relaxed"
         style={{ fontSize: "clamp(0.75rem, 1vw, 0.88rem)" }}
       >
         {step.desc}
@@ -120,21 +120,21 @@ function IconBubble({ step, index }: { step: (typeof STEPS)[0]; index: number })
       style={{
         width: 72,
         height: 72,
-        background: "radial-gradient(circle at 40% 35%, #2d2d2d 0%, #1a1a1a 55%, #111 100%)",
-        border: "1px solid rgba(255,255,255,0.09)",
+        background: "rgba(6, 18, 14, 0.85)",
+        border: "1px solid rgba(80, 200, 120, 0.15)",
         boxShadow:
-          "0 0 0 7px rgba(127,224,77,0.05), 0 4px 30px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.07)",
+          "0 0 0 7px rgba(80,200,120,0.05), 0 4px 30px rgba(0,0,0,0.85), inset 0 1px 0 rgba(80,200,120,0.1)",
       }}
     >
       <div
         className="absolute inset-0 rounded-full pointer-events-none"
         style={{
-          boxShadow: "0 0 18px rgba(127,224,77,0.18), 0 0 45px rgba(127,224,77,0.08)",
+          boxShadow: "0 0 18px rgba(80,200,120,0.15), 0 0 45px rgba(80,200,120,0.08)",
         }}
       />
       <Icon
         className="relative z-10"
-        style={{ width: 28, height: 28, color: "#7fe04d", strokeWidth: 1.5 }}
+        style={{ width: 28, height: 28, color: "#50C878", strokeWidth: 1.5 }}
       />
     </div>
   );
@@ -276,14 +276,14 @@ export function HowItWorks() {
             className="font-black uppercase mb-4"
             style={{
               fontSize: "clamp(0.68rem, 1vw, 0.82rem)",
-              color: "#7fe04d",
+              color: "#50C878",
               letterSpacing: "0.2em",
             }}
           >
             How It Works
           </p>
           <h2
-            className="font-display font-black text-white uppercase leading-tight mb-5"
+            className="font-display font-black text-[#F1F5F9] uppercase leading-tight mb-5"
             style={{ fontSize: "clamp(1.85rem, 4.2vw, 3.4rem)", letterSpacing: "-0.02em" }}
           >
             Seamless Logistics In 4 Steps
@@ -291,7 +291,7 @@ export function HowItWorks() {
             With Nexar
           </h2>
           <p
-            className="text-[#888] mx-auto"
+            className="text-[#94A3B8] mx-auto"
             style={{
               fontSize: "clamp(0.82rem, 1.2vw, 0.97rem)",
               maxWidth: 480,
@@ -376,7 +376,7 @@ export function HowItWorks() {
                       boxShadow: "0 0 16px rgba(127,224,77,0.14)",
                     }}
                   >
-                    {(() => { const { Icon } = step; return <Icon style={{ width: 22, height: 22, color: "#7fe04d", strokeWidth: 1.5 }} />; })()}
+                    {(() => { const { Icon } = step; return <Icon style={{ width: 22, height: 22, color: "#50C878", strokeWidth: 1.5 }} />; })()}
                   </div>
                   <StepCard step={step} index={i} />
                   {i < STEPS.length - 1 && (

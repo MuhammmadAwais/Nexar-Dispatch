@@ -70,8 +70,8 @@ export function Navbar() {
                 className={cn(
                   "group relative flex items-center gap-2 rounded-full px-3 py-1 text-[14px] font-medium whitespace-nowrap transition-colors duration-200",
                   i === 0
-                    ? "text-white"
-                    : "text-white/70 hover:text-white"
+                    ? "text-[#F1F5F9]"
+                    : "text-[#F1F5F9]/70 hover:text-[#F1F5F9]"
                 )}
               >
                 {i === 0 && (
@@ -91,7 +91,7 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-6 shrink-0 z-10">
           <a
             href="#contact"
-            className="text-[15px] font-medium text-white hover:text-white/80 transition-colors duration-150"
+            className="text-[15px] font-medium text-[#F1F5F9] hover:text-[#F1F5F9]/80 transition-colors duration-150"
           >
             Talk to us
           </a>
@@ -99,7 +99,7 @@ export function Navbar() {
             href="#services"
             className="inline-flex items-center justify-center rounded-full px-7 py-2.5 text-[15px] font-bold text-black shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             style={{
-              background: "linear-gradient(90deg, #7fe04d 0%, #F5B131 100%)"
+              background: "linear-gradient(90deg, #50C878 0%, #0B3D2E 100%)"
             }}
           >
             Get Started
@@ -108,7 +108,7 @@ export function Navbar() {
 
         {/* ── Mobile toggle ── */}
         <button
-          className="lg:hidden p-2 text-white/70 hover:text-white transition-colors z-10"
+          className="lg:hidden p-2 text-[#F1F5F9]/70 hover:text-[#F1F5F9] transition-colors z-10"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
@@ -138,7 +138,7 @@ export function Navbar() {
                   initial={{ opacity: 0, x: -14 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.04, duration: 0.18 }}
-                  className="flex items-center gap-3 text-2xl font-display font-black text-white border-b border-white/8 py-4 uppercase tracking-tight transition-colors"
+                  className="flex items-center gap-3 text-2xl font-display font-black text-[#F1F5F9] border-b border-white/8 py-4 uppercase tracking-tight transition-colors"
                 >
                   {i === 0 && (
                     <span className="w-2 h-2 rounded-full bg-white shrink-0" />
@@ -153,7 +153,7 @@ export function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className="w-full text-center rounded-full py-4 text-lg font-bold text-black"
                 style={{
-                  background: "linear-gradient(90deg, #7fe04d 0%, #F5B131 100%)"
+                  background: "linear-gradient(90deg, #50C878 0%, #0B3D2E 100%)"
                 }}
               >
                 Get Started
@@ -161,7 +161,7 @@ export function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="w-full text-center rounded-full py-4 text-lg font-semibold text-white border border-white/20"
+                className="w-full text-center rounded-full py-4 text-lg font-semibold text-[#F1F5F9] border border-white/20"
               >
                 Talk to us
               </a>

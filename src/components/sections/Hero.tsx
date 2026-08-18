@@ -85,13 +85,13 @@ export function Hero() {
         }}
       />
 
-      {/* ── Large green glow — left/center behind text to match reference ── */}
+      {/* ── Faded green glow behind the truck to match reference ── */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background:
-            "radial-gradient(ellipse 60% 80% at 40% 50%, rgba(127,224,77,0.4) 0%, rgba(127,224,77,0.15) 40%, transparent 70%)",
+            "radial-gradient(circle 55vw at 80% 50%, rgba(80,200,120,0.3) 0%, rgba(80,200,120,0.1) 40%, transparent 70%)",
         }}
       />
 
@@ -130,39 +130,32 @@ export function Hero() {
           
           {/* Headline — 3 lines, glow added */}
           <h1
-            className="font-display font-black uppercase text-white leading-[1.05] mb-6"
+            className="font-display font-black uppercase text-[#F1F5F9] leading-[1.05] mb-6"
             style={{
               fontSize: "clamp(2rem, 5vw, 6rem)",
               letterSpacing: "-0.02em",
             }}
           >
             <div className="pb-1 w-max">
-              <span 
-                className="hero-h1-line block whitespace-nowrap"
-                style={{ filter: "drop-shadow(0 0 15px rgba(255,255,255,0.15))" }}
-              >
+              <span className="hero-h1-line block whitespace-nowrap">
                 DISPATCH SERVICES
               </span>
             </div>
             <div className="pb-1 w-max">
-              <span 
-                className="hero-h1-line block whitespace-nowrap"
-                style={{ filter: "drop-shadow(0 0 15px rgba(255,255,255,0.15))" }}
-              >
+              <span className="hero-h1-line block whitespace-nowrap">
                 THAT MAXIMIZE
               </span>
             </div>
             
-            {/* Third line: Highlighted gradient text with glow */}
+            {/* Third line: Highlighted gradient text without neon glow */}
             <div className="pt-2 pb-2 w-max">
               <span 
                 className="hero-h1-line block whitespace-nowrap"
                 style={{
-                  background: "linear-gradient(90deg, #7fe04d 0%, #F5B131 100%)",
+                  background: "linear-gradient(90deg, #50C878 0%, #004D40 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
-                  filter: "drop-shadow(0 0 25px rgba(127,224,77,0.45)) drop-shadow(0 0 45px rgba(245,177,49,0.3))",
                 }}
               >
                 YOUR REVENUE!
@@ -172,15 +165,15 @@ export function Hero() {
 
           {/* Sub-headline */}
           <p
-            className="hero-sub text-[#aaa] font-medium mb-10 max-w-lg"
+            className="hero-sub text-[#948E82] font-medium mb-10 max-w-lg"
             style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.15rem)", lineHeight: 1.6 }}
           >
             While You&apos;re Fighting for{" "}
-            <strong className="text-white font-bold">$1.80/Mile</strong>,{" "}
+            <strong className="text-[#F1F5F9] font-bold">$1.80/Mile</strong>,{" "}
             We&apos;re Getting Our Drivers{" "}
             <strong
               style={{
-                background: "linear-gradient(90deg, #7fe04d, #F5B131)",
+                background: "linear-gradient(90deg, #50C878, #004D40)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -194,13 +187,13 @@ export function Hero() {
           <div className="hero-cta flex items-center gap-4 mb-6">
             <a
               href="#services"
-              className="group relative inline-flex items-center justify-center rounded-full px-8 py-3.5 sm:px-10 sm:py-4 text-sm sm:text-[15px] font-bold text-black bg-white transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.3)] hover:scale-105 hover:bg-gray-50"
+              className="group relative inline-flex items-center justify-center rounded-full px-8 py-3.5 sm:px-10 sm:py-4 text-sm sm:text-[15px] font-bold text-black bg-[#50C878] transition-all duration-300 shadow-[0_4px_20px_rgba(80,200,120,0.15)] hover:shadow-[0_8px_30px_rgba(80,200,120,0.3)] hover:scale-105 hover:bg-[#5CE08A]"
             >
               Get Started Free
             </a>
             <a
               href="#how-it-works"
-              className="group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white text-black transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.3)] hover:scale-110 hover:bg-gray-50 shrink-0"
+              className="group flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#50C878] text-black transition-all duration-300 shadow-[0_4px_20px_rgba(80,200,120,0.15)] hover:shadow-[0_8px_30px_rgba(80,200,120,0.3)] hover:scale-110 hover:bg-[#5CE08A] shrink-0"
               aria-label="Talk to a Dispatcher"
             >
               <ArrowUpRight size={24} strokeWidth={2.5} className="group-hover:rotate-45 transition-transform duration-300" />
@@ -222,8 +215,8 @@ export function Hero() {
             className="w-full h-auto object-contain object-bottom select-none drop-shadow-2xl"
             style={{
               maxHeight: "70vh",
-              // Realistic drop shadow instead of neon glow, matching reference
-              filter: "drop-shadow(-20px 30px 60px rgba(0,0,0,0.95)) drop-shadow(-5px 15px 25px rgba(0,0,0,0.85)) drop-shadow(0 0 50px rgba(127,224,77,0.2))",
+              // Realistic drop shadow for depth, without neon glow
+              filter: "drop-shadow(-20px 30px 60px rgba(0,0,0,0.95)) drop-shadow(-5px 15px 25px rgba(0,0,0,0.85))",
             }}
           />
         </div>
@@ -237,7 +230,7 @@ export function Hero() {
         className="absolute bottom-0 left-0 w-full z-[10] overflow-hidden shadow-[0_-10px_30px_rgba(0,0,0,0.5)] border-t border-white/10"
         style={{
           // Vertical gradient: top is green, bottom is yellow
-          background: "linear-gradient(180deg, #7fe04d 0%, #F5B131 100%)",
+          background: "linear-gradient(180deg, #50C878 0%, #0B3D2E 100%)",
         }}
         aria-label="Services carousel"
       >

@@ -8,7 +8,6 @@ export function useParallax(factor: number) {
 
   useEffect(() => {
     if (reducedMotion) {
-      setOffset(0);
       return;
     }
 

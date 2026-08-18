@@ -210,7 +210,6 @@ export function Solution() {
               {/* Stacked slide content — all absolute except slide 0 */}
               <div className="relative">
                 {slides.map((slide, i) => {
-                  const Icon = slide.icon;
                   return (
                     <div
                       key={slide.id}

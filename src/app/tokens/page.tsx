@@ -81,7 +81,7 @@ export default function TokensPage() {
       <section>
         <h2 className="text-display-m mb-8 pb-4 border-b border-line">Interactive</h2>
         <div className="flex gap-6">
-          <button className="px-6 py-3 bg-accent text-white font-body rounded-button hover:bg-surface-2 hover:border hover:border-line-bright transition-all duration-quick ease-quick text-sm">
+          <button className="px-6 py-3 bg-accent text-[#F1F5F9] font-body rounded-button hover:bg-surface-2 hover:border hover:border-line-bright transition-all duration-quick ease-quick text-sm">
             Quick Transition Hover
           </button>
           

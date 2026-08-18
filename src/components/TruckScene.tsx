@@ -14,12 +14,12 @@ export function TruckScene() {
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
-    if (!containerRef.current || !videoRef.current || reducedMotion) return;
+    const video = videoRef.current;
+    if (!containerRef.current || !video || reducedMotion) return;
     
     let ctx: gsap.Context | undefined;
     
     const setupScrollScrub = () => {
-      const video = videoRef.current;
       if (!video) return;
       
       const duration = video.duration || 10;
@@ -46,15 +46,15 @@ export function TruckScene() {
       }, scrubTrigger);
     };
 
-    if (videoRef.current.readyState >= 1) {
+    if (video.readyState >= 1) {
       setupScrollScrub();
     } else {
-      videoRef.current.addEventListener('loadedmetadata', setupScrollScrub);
+      video.addEventListener('loadedmetadata', setupScrollScrub);
     }
 
     return () => {
-      if (videoRef.current) {
-        videoRef.current.removeEventListener('loadedmetadata', setupScrollScrub);
+      if (video) {
+        video.removeEventListener('loadedmetadata', setupScrollScrub);
       }
       if (ctx) ctx.revert();
     };

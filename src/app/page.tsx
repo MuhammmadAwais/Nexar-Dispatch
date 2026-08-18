@@ -9,6 +9,7 @@ import { RoadJourney } from "../components/sections/RoadJourney";
 import { Problem } from "../components/sections/Problem";
 import { Solution } from "../components/sections/Solution";
 import { Services } from "../components/sections/Services";
+import { ServicesDetail } from "../components/sections/ServicesDetail";
 import { Equipment } from "../components/sections/Equipment";
 import { HowItWorks } from "../components/sections/HowItWorks";
 import { LoadBoard } from "../components/sections/LoadBoard";
@@ -29,6 +30,7 @@ export default function Home() {
         <HowItWorks />
         <TrustBar />
         <ServicesShowcase />
+        <ServicesDetail />
         <RoadJourney />
         <Problem />
         <Solution />
