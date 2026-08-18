@@ -394,7 +394,7 @@ export function HowItWorks() {
 
       {/* ── Truck + NEXAR footer — shared stacking container ── */}
       <div
-        className="relative w-full overflow-hidden"
+        className="relative w-full"
         style={{ height: "clamp(320px, 38vw, 560px)" }}
       >
         {/* Deep green floor glow — bleeds up behind everything */}
@@ -438,10 +438,10 @@ export function HowItWorks() {
           aria-hidden
           className="pointer-events-none absolute z-20"
           style={{
-            bottom: "28%",
+            bottom: "58%",
             left: "50%",
-            transform: "translateX(-50%)",
-            width: "clamp(280px, 45vw, 620px)",
+            transform: "translateX(10%)",
+            width: "clamp(280px, 40vw, 620px)",
             height: 40,
             background:
               "radial-gradient(ellipse 90% 100% at 50% 50%, rgba(245,140,30,0.38) 0%, rgba(245,140,30,0.12) 55%, transparent 80%)",
@@ -449,22 +449,23 @@ export function HowItWorks() {
           }}
         />
 
-        {/* ── Truck image — sits on top of NEXAR text ── */}
+        {/* ── Truck image — sits above the NEXAR text ── */}
         <div
-          className="hiw-truck absolute z-30 left-1/2 pointer-events-none"
+          className="hiw-truck absolute z-50 pointer-events-none"
           style={{
-            /* Horizontally center */
-            transform: "translateX(-50%)",
-            /* Bottom: push wheels down to ~28% from bottom so they rest on top of the letter caps */
-            bottom: "22%",
-            width: "clamp(280px, 52vw, 700px)",
+            /* Position right side, front cab near center line */
+            left: "50%",
+            transform: "translateX(-5%)",
+            /* Push truck ABOVE the text block */
+            bottom: "60%",
+            width: "clamp(400px, 50vw, 850px)",
           }}
         >
           <Image
             src="/how-it-works-truck.png"
             alt="Nexar Dispatch Semi Truck"
-            width={700}
-            height={350}
+            width={850}
+            height={425}
             unoptimized
             priority={false}
             className="w-full h-auto object-contain"
