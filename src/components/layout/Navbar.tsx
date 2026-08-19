@@ -12,8 +12,8 @@ const LINKS = [
   { label: "About us",    href: "#about"         },
   { label: "Services",    href: "#services"      },
   { label: "How it works",href: "#how-it-works"  },
-  { label: "Equipment",   href: "#equipment"     },
-  { label: "Contact us",  href: "#contact"       },
+  { label: "Equipment",   href: "/#equipment"     },
+  { label: "Contact us",  href: "/contact"       },
 ];
 
 export function Navbar() {
@@ -90,7 +90,7 @@ export function Navbar() {
         {/* ── 3. CTA Buttons (far right) — hidden on mobile ── */}
         <div className="hidden lg:flex items-center gap-6 shrink-0 z-10">
           <a
-            href="#contact"
+            href="/contact"
             className="text-[15px] font-medium text-[#F1F5F9] hover:text-[#F1F5F9]/80 transition-colors duration-150"
           >
             Talk to us
@@ -159,7 +159,7 @@ export function Navbar() {
                 Get Started
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 onClick={() => setMobileOpen(false)}
                 className="w-full text-center rounded-full py-4 text-lg font-semibold text-[#F1F5F9] border border-white/20"
               >

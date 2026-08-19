@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 import { SmoothScroll } from "../components/layout/SmoothScroll";
+import { Toaster } from "sonner";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll>
           {children}
         </SmoothScroll>
+        <Toaster theme="dark" position="bottom-right" />
       </body>
     </html>
   );

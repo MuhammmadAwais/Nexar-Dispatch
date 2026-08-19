@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export function Cta() {
@@ -70,10 +71,10 @@ export function Cta() {
           </span>
         </div>
 
-        <button className="group relative inline-flex items-center justify-center gap-3 bg-[#50C878] text-black px-10 py-5 rounded-2xl font-bold text-lg hover:bg-[#50C878]/90 transition-all shadow-[0_0_20px_rgba(80,200,120,0.3)] hover:shadow-[0_0_40px_rgba(80,200,120,0.5)]">
+        <Link href="/contact" className="group relative inline-flex items-center justify-center gap-3 bg-[#50C878] text-black px-10 py-5 rounded-2xl font-bold text-lg hover:bg-[#50C878]/90 transition-all shadow-[0_0_20px_rgba(80,200,120,0.3)] hover:shadow-[0_0_40px_rgba(80,200,120,0.5)]">
           Get Started Today
           <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" strokeWidth={2.5} />
-        </button>
+        </Link>
       </div>
 
     </section>
