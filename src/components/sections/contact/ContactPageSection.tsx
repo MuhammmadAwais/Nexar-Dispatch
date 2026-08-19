@@ -213,13 +213,13 @@ export function ContactPageSection() {
             </div>
           </motion.div>
 
-          {/* Right Column: 3D Canvas */}
+          {/* Right Column: 3D Canvas (Hidden on mobile) */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeUpVariant}
-            className="w-full lg:w-7/12 min-h-[300px] sm:min-h-[380px] md:min-h-[560px] flex"
+            className="hidden lg:flex w-full lg:w-7/12 min-h-[300px] sm:min-h-[380px] md:min-h-[560px]"
           >
             <div
               ref={canvasContainerRef}

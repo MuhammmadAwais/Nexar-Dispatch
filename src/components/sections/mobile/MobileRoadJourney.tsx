@@ -1,0 +1,138 @@
+"use client";
+
+import { useRef } from "react";
+import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { useReducedMotion } from "../../../hooks/useReducedMotion";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+export function MobileRoadJourney() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const reducedMotion = useReducedMotion();
+
+  useGSAP(() => {
+    if (reducedMotion || !containerRef.current) return;
+
+    // Fade in text blocks as they enter the screen
+    gsap.utils.toArray(".road-mobile-text").forEach((el: any) => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+        },
+      });
+    });
+
+    // Animate the line filling down
+    gsap.from(".road-mobile-line-fill", {
+      scaleY: 0,
+      transformOrigin: "top center",
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".road-mobile-timeline",
+        start: "top 70%",
+        end: "bottom 70%",
+        scrub: 1,
+      }
+    });
+
+    // Make the truck follow the scroll down the line
+    gsap.to(".road-mobile-truck-pin", {
+      y: () => {
+        const timeline = document.querySelector('.road-mobile-timeline');
+        return timeline ? timeline.clientHeight : 500;
+      },
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".road-mobile-timeline",
+        start: "top 50%",
+        end: "bottom 50%",
+        scrub: 1,
+      }
+    });
+
+  }, { scope: containerRef, dependencies: [reducedMotion] });
+
+  return (
+    <section ref={containerRef} className="relative w-full bg-black py-20 overflow-hidden">
+      
+      {/* Header */}
+      <div className="relative z-10 px-6 text-center mb-16">
+        <h2 className="text-3xl font-display font-black text-[#F1F5F9] uppercase leading-[1.1] mb-4">
+          The Road To <span className="text-[#50C878]">Profitability</span>
+        </h2>
+        <p className="text-[#94A3B8] text-[0.95rem] leading-relaxed max-w-sm mx-auto">
+          We handle the back-office chaos so you can focus on driving.
+        </p>
+      </div>
+
+      <div className="relative w-full max-w-sm mx-auto px-6 road-mobile-timeline">
+        
+        {/* The Vertical Road Line */}
+        <div className="absolute left-10 top-0 bottom-0 w-1 bg-white/10 rounded-full" />
+        <div className="road-mobile-line-fill absolute left-10 top-0 bottom-0 w-1 bg-[#50C878] rounded-full shadow-[0_0_15px_#50C878]" />
+
+        {/* The Truck moving down */}
+        <div className="road-mobile-truck-pin absolute left-10 -ml-4 -mt-4 w-10 h-10 z-20 flex items-center justify-center">
+          <div className="absolute inset-0 bg-[#50C878]/20 blur-md rounded-full" />
+          <Image
+            src="/how-it-works-truck.png"
+            alt="Truck"
+            width={40}
+            height={40}
+            className="w-full h-auto object-contain rotate-90 drop-shadow-md"
+            unoptimized
+          />
+        </div>
+
+        {/* Timeline Items */}
+        <div className="flex flex-col gap-24 relative z-10 pt-10 pb-10 ml-10 pl-8">
+          
+          <div className="road-mobile-text relative">
+            <div className="absolute -left-[45px] top-1.5 w-3 h-3 rounded-full bg-black border-2 border-[#50C878] shadow-[0_0_10px_#50C878] z-30" />
+            <span className="text-[#50C878] text-[10px] font-bold tracking-widest uppercase mb-1 block">Phase 1</span>
+            <h3 className="text-xl font-black text-[#F1F5F9] uppercase tracking-tight mb-2">Setup & Sync</h3>
+            <p className="text-[#94A3B8] text-sm leading-relaxed">
+              We gather your preferences, lanes, and equipment details. Your dedicated dispatcher learns exactly how you like to run.
+            </p>
+          </div>
+
+          <div className="road-mobile-text relative">
+            <div className="absolute -left-[45px] top-1.5 w-3 h-3 rounded-full bg-black border-2 border-[#50C878] shadow-[0_0_10px_#50C878] z-30" />
+            <span className="text-[#50C878] text-[10px] font-bold tracking-widest uppercase mb-1 block">Phase 2</span>
+            <h3 className="text-xl font-black text-[#F1F5F9] uppercase tracking-tight mb-2">High-Paying Lanes</h3>
+            <p className="text-[#94A3B8] text-sm leading-relaxed">
+              We leverage our extensive broker network and load board tech to find freight that matches your exact criteria and rate expectations.
+            </p>
+          </div>
+
+          <div className="road-mobile-text relative">
+            <div className="absolute -left-[45px] top-1.5 w-3 h-3 rounded-full bg-black border-2 border-[#50C878] shadow-[0_0_10px_#50C878] z-30" />
+            <span className="text-[#50C878] text-[10px] font-bold tracking-widest uppercase mb-1 block">Phase 3</span>
+            <h3 className="text-xl font-black text-[#F1F5F9] uppercase tracking-tight mb-2">Negotiation</h3>
+            <p className="text-[#94A3B8] text-sm leading-relaxed">
+              We handle the back-and-forth, fighting for every cent per mile while you drive. Once secured, we handle the rate cons.
+            </p>
+          </div>
+
+          <div className="road-mobile-text relative">
+            <div className="absolute -left-[45px] top-1.5 w-3 h-3 rounded-full bg-black border-2 border-[#50C878] shadow-[0_0_10px_#50C878] z-30" />
+            <span className="text-[#50C878] text-[10px] font-bold tracking-widest uppercase mb-1 block">Phase 4</span>
+            <h3 className="text-xl font-black text-[#F1F5F9] uppercase tracking-tight mb-2">Paid Faster</h3>
+            <p className="text-[#94A3B8] text-sm leading-relaxed">
+              We submit your PODs, handle invoicing, and interface with your factoring company so you get paid immediately without the paperwork headache.
+            </p>
+          </div>
+
+        </div>
+      </div>
+      
+    </section>
+  );
+}
