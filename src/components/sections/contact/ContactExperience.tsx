@@ -9,10 +9,12 @@ const WebGLCleaner: React.FC = () => {
   const { gl, scene } = useThree();
   useEffect(() => {
     return () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       scene.traverse((object: any) => {
         if (object.geometry) object.geometry.dispose();
         if (object.material) {
           if (Array.isArray(object.material)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             object.material.forEach((mat: any) => mat.dispose());
           } else {
             object.material.dispose();
@@ -36,6 +38,7 @@ const ContactExperience: React.FC = () => {
 
       // Detect slow internet / Data Saver on mobile to avoid heavy 3D load
       if (mobile && "connection" in navigator) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const conn = (navigator as any).connection;
         if (conn) {
           const slowType = ["slow-2g", "2g", "3g"].includes(conn.effectiveType);

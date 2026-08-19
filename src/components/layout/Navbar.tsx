@@ -7,10 +7,11 @@ import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { cn } from "../ui/Button";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const LINKS = [
   { label: "Home",         href: "/"             },
-  { label: "About us",    href: "/#about"         },
+  { label: "About us",    href: "/about"          },
   { label: "Services",    href: "/#services"      },
   { label: "How it works",href: "/#how-it-works"  },
   { label: "Equipment",   href: "/#equipment"     },
@@ -21,12 +22,22 @@ export function Navbar() {
   const [scrolled,    setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  const pathname = usePathname();
+  const [activeHash, setActiveHash] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    // Initial hash check
+    setActiveHash(window.location.hash);
+    const handleHashChange = () => setActiveHash(window.location.hash);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   useEffect(() => {
@@ -40,6 +51,16 @@ export function Navbar() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  const isActive = (href: string) => {
+    if (href.startsWith("/#")) {
+      return pathname === "/" && activeHash === href.substring(1);
+    }
+    if (href === "/") {
+      return pathname === "/" && activeHash === "";
+    }
+    return pathname === href;
+  };
 
   return (
     <>
@@ -64,27 +85,30 @@ export function Navbar() {
         {/* ── 2. Nav pill (center) — hidden on mobile ── */}
         <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2">
           <div className="flex items-center gap-2 rounded-full bg-[#333333]/60 backdrop-blur-md px-6 py-3 shadow-lg border border-white/5">
-            {LINKS.map((link, i) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={cn(
-                  "group relative flex items-center gap-2 rounded-full px-3 py-1 text-[14px] font-medium whitespace-nowrap transition-colors duration-200",
-                  i === 0
-                    ? "text-[#F1F5F9]"
-                    : "text-[#F1F5F9]/70 hover:text-[#F1F5F9]"
-                )}
-              >
-                {i === 0 && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
-                )}
-                {link.label}
-                {/* Animated underline on hover */}
-                {i !== 0 && (
-                  <span className="absolute left-3 right-3 -bottom-1 h-[2px] rounded-full bg-white/80 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out" />
-                )}
-              </Link>
-            ))}
+            {LINKS.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={cn(
+                    "group relative flex items-center gap-2 rounded-full px-3 py-1 text-[14px] font-medium whitespace-nowrap transition-colors duration-200",
+                    active
+                      ? "text-[#50C878]"
+                      : "text-[#F1F5F9]/70 hover:text-[#50C878]"
+                  )}
+                >
+                  {active && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#50C878] shrink-0 shadow-[0_0_8px_rgba(80,200,120,0.8)]" />
+                  )}
+                  {link.label}
+                  {/* Animated underline on hover */}
+                  {!active && (
+                    <span className="absolute left-3 right-3 -bottom-1 h-[2px] rounded-full bg-[#50C878]/80 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out" />
+                  )}
+                </Link>
+              );
+            })}
           </div>
         </nav>
 
