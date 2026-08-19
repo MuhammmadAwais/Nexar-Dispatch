@@ -5,12 +5,14 @@ import "./globals.css";
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
+  display: "swap",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-instrument",
+  display: "swap",
   weight: ["400", "500", "600", "700"],
 });
 

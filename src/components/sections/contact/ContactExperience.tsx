@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Suspense, useState, useEffect } from "react";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, BakeShadows } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 import Computer from "./Computer";
 
@@ -82,6 +82,7 @@ const ContactExperience: React.FC = () => {
   return (
     <Canvas
       shadows
+      frameloop="demand"
       dpr={isMobile ? [1, 1.5] : [1, 2]}
       camera={{
         position: isMobile ? [0, 2.8, 8.2] : [0, 3, 7],
@@ -90,6 +91,7 @@ const ContactExperience: React.FC = () => {
       gl={{ antialias: true, powerPreference: isMobile ? "default" : "high-performance" }}
       className="w-full h-full"
     >
+      <BakeShadows />
       <WebGLCleaner />
       <ambientLight intensity={0.7} color="#ffffff" />
 

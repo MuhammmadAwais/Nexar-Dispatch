@@ -1,12 +1,10 @@
 "use client";
+import { gsap, ScrollTrigger, MotionPathPlugin, useGSAP } from "@/lib/gsap";
 
 import { ReactNode, useEffect } from "react";
 import Lenis from "lenis";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 
-gsap.registerPlugin(ScrollTrigger);
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   const reducedMotion = useReducedMotion();

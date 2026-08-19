@@ -1,9 +1,10 @@
 'use client';
+import { gsap, ScrollTrigger, MotionPathPlugin, useGSAP } from "@/lib/gsap";
 
 import React, { useRef } from 'react';
 import Image from 'next/image';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+
+
 import { Plane, Ship, ShieldCheck, Warehouse, Truck, ArrowRight } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 

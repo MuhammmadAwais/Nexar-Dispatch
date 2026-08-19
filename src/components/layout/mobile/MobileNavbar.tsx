@@ -6,7 +6,6 @@ import { Menu, X } from "lucide-react";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const LINKS = [
   { label: "Home",         href: "/"             },

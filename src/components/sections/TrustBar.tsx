@@ -1,14 +1,11 @@
 "use client";
+import { gsap, ScrollTrigger, MotionPathPlugin, useGSAP } from "@/lib/gsap";
 
 import { useRef } from "react";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import Image from "next/image";
 import { Star, Quote } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const STATS = [
   { value: "500+", label: "Active Drivers" },

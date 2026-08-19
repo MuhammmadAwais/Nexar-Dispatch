@@ -1,13 +1,10 @@
 "use client";
+import { gsap, ScrollTrigger, MotionPathPlugin, useGSAP } from "@/lib/gsap";
 
 import { useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { useReducedMotion } from "../../../hooks/useReducedMotion";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export function MobileRoadJourney() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,7 +14,7 @@ export function MobileRoadJourney() {
     if (reducedMotion || !containerRef.current) return;
 
     // Fade in text blocks as they enter the screen
-    gsap.utils.toArray(".road-mobile-text").forEach((el: any) => {
+    (gsap.utils.toArray(".road-mobile-text") as Element[]).forEach((el) => {
       gsap.from(el, {
         opacity: 0,
         y: 30,

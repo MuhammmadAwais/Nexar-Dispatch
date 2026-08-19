@@ -1,13 +1,10 @@
 'use client';
+import { gsap, useGSAP } from "@/lib/gsap";
 
-import React, { useRef, useState } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useRef, useState, useTransition } from 'react';
 import { Truck, Snowflake, Package, Box, Zap } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const equipmentTypes = [
   {
@@ -111,6 +108,7 @@ export function ServicesDetail() {
   const containerRef = useRef<HTMLElement>(null);
   const rightPanelRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [, startTransition] = useTransition();
   const reducedMotion = useReducedMotion();
 
   useGSAP(() => {
@@ -124,14 +122,16 @@ export function ServicesDetail() {
         start: 'top top',
         end: 'bottom bottom',
         scrub: 1, // Smooth scrub for premium feel
-        onUpdate: (self) => {
+        onUpdate: (self: { progress: number }) => {
           const progress = self.progress;
           const totalItems = equipmentTypes.length;
           const index = Math.min(
             totalItems - 1,
             Math.floor(progress * totalItems * 1.1)
           );
-          setActiveIndex(index);
+          startTransition(() => {
+            setActiveIndex(index);
+          });
         }
       }
     });

@@ -1,14 +1,10 @@
 "use client";
+import { gsap, ScrollTrigger, MotionPathPlugin, useGSAP } from "@/lib/gsap";
 
 import { useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import { useGSAP } from "@gsap/react";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 // Register plugins
-gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, useGSAP);
 
 export function RoadJourney() {
   const containerRef = useRef<HTMLDivElement>(null);

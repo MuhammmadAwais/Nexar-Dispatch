@@ -9,9 +9,10 @@ import { motion, Variants } from "framer-motion";
 const ContactExperience = dynamic(() => import("./ContactExperience"), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-full min-h-[340px] sm:min-h-[420px] md:min-h-[560px] flex flex-col items-center justify-center bg-black text-white/60 font-mono text-xs md:text-sm tracking-widest uppercase border border-[#50C878]/20">
-      <div className="w-8 h-8 rounded-full border-2 border-[#50C878]/20 border-t-[#50C878] animate-spin mb-4"></div>
-      <p>Loading 3D Studio Showcase...</p>
+    <div className="w-full h-full min-h-[340px] sm:min-h-[420px] md:min-h-[560px] flex flex-col items-center justify-center bg-black text-white/60 font-mono text-xs md:text-sm tracking-widest uppercase border border-[#50C878]/20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#50C878]/20 via-black to-black blur-xl"></div>
+      <div className="relative z-10 w-8 h-8 rounded-full border-2 border-[#50C878]/20 border-t-[#50C878] animate-spin mb-4"></div>
+      <p className="relative z-10">Loading 3D Studio Showcase...</p>
     </div>
   ),
 });
@@ -228,8 +229,9 @@ export function ContactPageSection() {
               {isInViewport ? (
                 <ContactExperience />
               ) : (
-                <div className="w-full h-full min-h-[300px] sm:min-h-[380px] md:min-h-[560px] flex items-center justify-center text-white/50 font-mono text-xs tracking-widest uppercase">
-                  Scroll to view 3D Showcase
+                <div className="w-full h-full min-h-[300px] sm:min-h-[380px] md:min-h-[560px] flex items-center justify-center text-white/50 font-mono text-xs tracking-widest uppercase relative overflow-hidden bg-black">
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#50C878]/10 via-black to-black blur-2xl"></div>
+                  <span className="relative z-10">Scroll to view 3D Showcase</span>
                 </div>
               )}
             </div>

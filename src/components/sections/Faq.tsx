@@ -51,7 +51,7 @@ export function Faq() {
               Frequently Asked<br/>Questions
             </h3>
             <p className="text-lg text-[#E6F4EA]/70 font-sans leading-relaxed mb-10">
-              As a premier dispatching service, we are dedicated to providing transparency and clear answers to help you scale your fleet. Don't see what you're looking for?
+              As a premier dispatching service, we are dedicated to providing transparency and clear answers to help you scale your fleet. Don&apos;t see what you&apos;re looking for?
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">

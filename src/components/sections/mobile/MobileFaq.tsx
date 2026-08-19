@@ -41,7 +41,7 @@ export function MobileFaq() {
         </h2>
         
         <p className="text-[0.9rem] text-[#E6F4EA]/70 font-sans leading-relaxed mb-6">
-          As a premier dispatching service, we are dedicated to providing transparency and clear answers to help you scale your fleet. Don't see what you're looking for?
+          As a premier dispatching service, we are dedicated to providing transparency and clear answers to help you scale your fleet. Don&apos;t see what you&apos;re looking for?
         </p>
         
         <div className="flex flex-col gap-4">

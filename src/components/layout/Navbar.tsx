@@ -33,7 +33,7 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    // Initial hash check
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActiveHash(window.location.hash);
     const handleHashChange = () => setActiveHash(window.location.hash);
     window.addEventListener("hashchange", handleHashChange);

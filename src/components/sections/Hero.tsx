@@ -1,13 +1,11 @@
 "use client";
+import { gsap, ScrollTrigger, MotionPathPlugin, useGSAP } from "@/lib/gsap";
 
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef, useState, useTransition } from "react";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const COMPANY_LOGOS = [
   {
@@ -65,32 +63,32 @@ export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
   const [mousePos, setMousePos] = useState({ x: 500, y: 500 });
+  const [, startTransition] = useTransition();
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!containerRef.current) return;
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      if (reducedMotion) {
-        tl.from([".hero-h1-line", ".hero-sub", ".hero-cta", ".hero-ghost"], {
-          opacity: 0, duration: 0.15, stagger: 0.04,
-        });
-        return;
-      }
-      tl.from(".hero-ghost",    { opacity: 0, duration: 1.0 }, 0)
-        .from(".hero-h1-line",  { opacity: 0, y: 30, duration: 0.8, stagger: 0.1, ease: "power3.out" }, 0.2)
-        .from(".hero-sub",      { opacity: 0, y: 15, duration: 0.6 }, 0.6)
-        .from(".hero-cta",      { opacity: 0, y: 15, duration: 0.6 }, 0.7)
-        .from(".hero-truck",    { opacity: 0, x: 80, duration: 1.2, ease: "power3.out" }, 0.3);
-    }, containerRef);
-    return () => ctx.revert();
-  }, [reducedMotion]);
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    if (reducedMotion) {
+      tl.from([".hero-h1-line", ".hero-sub", ".hero-cta", ".hero-ghost"], {
+        opacity: 0, duration: 0.15, stagger: 0.04,
+      });
+      return;
+    }
+    tl.from(".hero-ghost",    { opacity: 0, duration: 1.0 }, 0)
+      .from(".hero-h1-line",  { opacity: 0, y: 30, duration: 0.8, stagger: 0.1, ease: "power3.out" }, 0.2)
+      .from(".hero-sub",      { opacity: 0, y: 15, duration: 0.6 }, 0.6)
+      .from(".hero-cta",      { opacity: 0, y: 15, duration: 0.6 }, 0.7)
+      .from(".hero-truck",    { opacity: 0, x: 80, duration: 1.2, ease: "power3.out" }, 0.3);
+  }, { scope: containerRef, dependencies: [reducedMotion] });
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const rect = containerRef.current?.getBoundingClientRect();
     if (rect) {
-      setMousePos({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
+      startTransition(() => {
+        setMousePos({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
       });
     }
   };
