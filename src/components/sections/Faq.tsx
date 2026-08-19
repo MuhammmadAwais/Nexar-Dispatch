@@ -90,64 +90,74 @@ export function Faq() {
 
 function AccordionItem({ faq, isOpen, onClick }: { faq: typeof FAQS[0], isOpen: boolean, onClick: () => void }) {
   return (
-    <div className="flex flex-col w-full">
+    <motion.button 
+      layout
+      onClick={onClick}
+      className="w-full text-left group flex flex-col focus:outline-none cursor-pointer"
+    >
       {/* Category Tab */}
-      {/* We use border-t, border-l, border-r, but border-b-0, and pull it down 1px to seamlessly cover the card's top border */}
-      <div className="w-fit px-6 py-2 bg-[#1A1A1A] rounded-t-xl relative z-10 border border-b-0 border-white/10 -mb-[1px]">
-        <span className="text-xs font-mono font-bold tracking-widest text-[#E6F4EA]/60 uppercase">
+      <motion.div 
+        layout
+        className="w-fit px-5 py-2 bg-[#0a0a0a] rounded-t-lg border border-white/10 group-hover:border-[#50C878] transition-colors duration-300 relative z-10 translate-y-[1px]"
+      >
+        <span className="text-[10px] font-mono font-bold tracking-widest text-[#E6F4EA]/50 group-hover:text-[#50C878] transition-colors duration-300 uppercase">
           {faq.category}
         </span>
-      </div>
+      </motion.div>
       
       {/* Interactive Body */}
-      <button 
-        onClick={onClick}
-        className="w-full text-left group flex flex-col focus:outline-none relative z-0"
+      <motion.div 
+        layout
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="w-full bg-[#1A1A1A] border border-white/10 group-hover:border-[#50C878] rounded-b-xl rounded-tr-xl relative z-0 overflow-hidden transition-colors duration-300"
       >
-        <AnimatePresence initial={false} mode="wait">
+        <AnimatePresence initial={false} mode="popLayout">
           {isOpen ? (
-            // OPEN STATE (White Answer Box -> Green Question Bar)
+            // OPEN STATE
             <motion.div 
               key="open"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="w-full overflow-hidden flex flex-col shadow-2xl"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="w-full flex flex-col"
             >
-              {/* White Answer Box */}
-              <div className="bg-white border border-white px-6 py-8 md:px-10 md:py-12 rounded-tr-2xl relative z-0">
-                <p className="text-black text-lg md:text-xl font-sans leading-relaxed">
-                  {faq.answer}
-                </p>
+              {/* White Answer Box Area */}
+              <div className="px-3 pt-3 pb-8 md:px-5 md:pt-5 md:pb-10 relative z-0">
+                <div className="bg-white rounded-t-xl p-6 md:p-8">
+                  <p className="text-black text-base md:text-lg font-sans leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
+              
               {/* Green Question Footer */}
-              <div className="bg-[#50C878] border border-[#50C878] px-6 py-6 md:px-10 flex justify-between items-center rounded-b-2xl">
-                <h4 className="text-black text-xl md:text-2xl font-display font-medium pr-8">
+              <div className="bg-[#50C878] px-6 py-5 md:px-8 md:py-6 flex justify-between items-center -mt-10 rounded-b-xl relative z-10 shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
+                <h4 className="text-white text-lg md:text-xl font-display font-medium pr-8">
                   {faq.question}
                 </h4>
-                <div className="text-black text-2xl font-light">✕</div>
+                <div className="text-white text-xl font-light">✕</div>
               </div>
             </motion.div>
           ) : (
-            // CLOSED STATE (Dark Gray Question Bar)
+            // CLOSED STATE
             <motion.div
               key="closed"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="w-full bg-[#1A1A1A] border border-white/10 rounded-b-2xl rounded-tr-2xl px-6 py-6 md:px-10 md:py-8 flex justify-between items-center hover:bg-[#222] transition-colors relative z-0"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="w-full flex justify-between items-center px-6 py-5 md:px-8 md:py-6"
             >
-              <h4 className="text-white text-xl md:text-2xl font-display font-medium pr-8 group-hover:text-[#50C878] transition-colors">
+              <h4 className="text-white text-lg md:text-xl font-display font-medium pr-8">
                 {faq.question}
               </h4>
-              <div className="text-[#50C878] text-3xl font-light leading-none">+</div>
+              <div className="text-[#E6F4EA]/50 group-hover:text-[#50C878] text-2xl font-light leading-none transition-colors duration-300">+</div>
             </motion.div>
           )}
         </AnimatePresence>
-      </button>
-    </div>
+      </motion.div>
+    </motion.button>
   );
 }
 
