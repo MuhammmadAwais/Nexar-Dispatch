@@ -247,20 +247,18 @@ export function Hero() {
           </div>
         </div>
 
-        {/* ══════════════════════════════
-            RIGHT — Truck Image
-        ══════════════════════════════ */}
-        <div className="hero-truck absolute right-[-5%] lg:right-[-10%] xl:right-[-12%] bottom-[80px] flex items-end justify-end pointer-events-none w-[85%] md:w-[75%] lg:w-[60%] xl:w-[55%] z-[5]">
+        <div className="hero-truck absolute right-[-5%] md:right-[-10%] lg:right-[-15%] xl:right-[-20%] bottom-0 lg:bottom-[75px] flex items-end justify-end pointer-events-none w-[90%] md:w-[75%] lg:w-[65%] xl:w-[55%] z-[5]">
+          {/* Refined, cinematic ambient glow */}
+          <div className="absolute top-[40%] left-[40%] -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-[radial-gradient(circle,rgba(80,200,120,0.25)_0%,transparent_70%)] mix-blend-screen filter blur-[60px] z-0"></div>
           <Image
-            src="/fullrange-mtn-removebg-preview3.png?v=2"
+            src="/new-hero.webp"
             alt="Nexar Dispatch — Semi Truck"
             width={1600}
             height={1000}
             priority
-            unoptimized
-            className="w-full h-auto object-contain object-bottom select-none drop-shadow-2xl"
+            className="w-full h-auto object-contain object-bottom select-none drop-shadow-2xl relative z-10"
             style={{
-              maxHeight: "70vh",
+              maxHeight: "85vh",
               // Realistic drop shadow for depth, without neon glow
               filter: "drop-shadow(-20px 30px 60px rgba(0,0,0,0.95)) drop-shadow(-5px 15px 25px rgba(0,0,0,0.85))",
             }}
