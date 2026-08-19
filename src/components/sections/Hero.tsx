@@ -180,19 +180,19 @@ export function Hero() {
               letterSpacing: "-0.02em",
             }}
           >
-            <div className="pb-1 w-max">
+            <span className="block pb-1 w-max">
               <span className="hero-h1-line block whitespace-nowrap">
                 DISPATCH SERVICES
               </span>
-            </div>
-            <div className="pb-1 w-max">
+            </span>
+            <span className="block pb-1 w-max">
               <span className="hero-h1-line block whitespace-nowrap">
                 THAT MAXIMIZE
               </span>
-            </div>
+            </span>
             
             {/* Third line: Highlighted gradient text without neon glow */}
-            <div className="pt-2 pb-2 w-max">
+            <span className="block pt-2 pb-2 w-max">
               <span 
                 className="hero-h1-line block whitespace-nowrap"
                 style={{
@@ -204,7 +204,7 @@ export function Hero() {
               >
                 YOUR REVENUE!
               </span>
-            </div>
+            </span>
           </h1>
 
           {/* Sub-headline */}

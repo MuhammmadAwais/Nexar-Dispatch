@@ -134,18 +134,18 @@ export function MobileHero() {
           className="font-display font-black uppercase text-[#F1F5F9] leading-[1.05] mb-4"
           style={{ fontSize: "7.5vw", letterSpacing: "-0.02em" }}
         >
-          <div className="pb-1 w-max">
+          <span className="block pb-1 w-max">
             <span className="hero-h1-line block whitespace-nowrap">
               DISPATCH SERVICES
             </span>
-          </div>
-          <div className="pb-1 w-max">
+          </span>
+          <span className="block pb-1 w-max">
             <span className="hero-h1-line block whitespace-nowrap">
               THAT MAXIMIZE
             </span>
-          </div>
+          </span>
           
-          <div className="pt-1 pb-1 w-max">
+          <span className="block pt-1 pb-1 w-max">
             <span 
               className="hero-h1-line block whitespace-nowrap"
               style={{
@@ -157,7 +157,7 @@ export function MobileHero() {
             >
               YOUR REVENUE!
             </span>
-          </div>
+          </span>
         </h1>
 
         {/* Sub-headline */}
