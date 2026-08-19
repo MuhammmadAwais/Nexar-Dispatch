@@ -6,7 +6,6 @@ import { Hero } from "../components/sections/Hero";
 import { TrustBar } from "../components/sections/TrustBar";
 import ServicesShowcase from "../components/sections/ServicesShowcase";
 import { RoadJourney } from "../components/sections/RoadJourney";
-import { Problem } from "../components/sections/Problem";
 import { Solution } from "../components/sections/Solution";
 import { Services } from "../components/sections/Services";
 import { ServicesDetail } from "../components/sections/ServicesDetail";
@@ -19,7 +18,6 @@ import { Metrics } from "../components/sections/Metrics";
 import { Testimonials } from "../components/sections/Testimonials";
 import { Faq } from "../components/sections/Faq";
 import { Cta } from "../components/sections/Cta";
-import { ContactForm } from "../components/sections/ContactForm";
 
 export default function Home() {
   return (
@@ -32,7 +30,6 @@ export default function Home() {
         <ServicesShowcase />
         <ServicesDetail />
         <RoadJourney />
-        <Problem />
         <Solution />
         <Services />
         <Equipment />
@@ -43,7 +40,6 @@ export default function Home() {
         <Testimonials />
         <Faq />
         <Cta />
-        <ContactForm />
       </main>
       <Footer />
       <StickyMobileCta />

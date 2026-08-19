@@ -70,7 +70,7 @@ const BOTTOM_ROW = [
   },
 ];
 
-function TestimonialCard({ item }: { item: any }) {
+function TestimonialCard({ item }: { item: { quote: string; name: string; role: string; avatar: string; } }) {
   return (
     <div className="w-[350px] md:w-[400px] shrink-0 bg-[#111] border border-white/5 rounded-2xl p-6 flex flex-col justify-between gap-6 relative overflow-hidden group hover:-translate-y-2 hover:scale-[1.02] hover:bg-[#151515] hover:border-white/10 transition-all duration-300 hover:shadow-[0_10px_40px_rgba(127,224,77,0.1)] cursor-pointer">
       {/* Decorative background quote */}

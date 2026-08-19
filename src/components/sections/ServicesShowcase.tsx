@@ -59,7 +59,7 @@ export default function ServicesShowcase() {
       truckRef.current,
       { xPercent: -20, x: '0vw' },
       { xPercent: 100, x: '100vw', ease: 'none', duration: 1 },
-      0
+      0.3
     );
 
     const wrapperWidth = servicesWrapperRef.current?.scrollWidth || 0;
@@ -69,38 +69,51 @@ export default function ServicesShowcase() {
       servicesWrapperRef.current,
       { x: windowWidth - 600 },
       { x: -wrapperWidth, ease: 'none', duration: 1 },
-      0
+      0.3
     );
 
     tl.fromTo(
       bgTextRef.current,
       { xPercent: -5 },
       { xPercent: 5, ease: 'none', duration: 1 },
-      0
+      0.3
     );
 
     tl.to(stickyRef.current, {
       opacity: 0,
       duration: 0.1,
       ease: 'power2.inOut'
-    }, 0.9);
+    }, 1.3);
 
   }, { scope: containerRef });
 
   return (
     <section ref={containerRef} className="relative w-full h-[400vh] z-10 pointer-events-none">
-      <div ref={stickyRef} className="sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-center items-center pointer-events-auto bg-[#030502]">
+      <div ref={stickyRef} className="sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-center items-center pointer-events-auto bg-[#000000]">
 
-        {/* Massive Ambient Glow for True Glassmorphism */}
-        <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: 'radial-gradient(circle at 70% 60%, rgba(80,200,120,0.15), transparent 60%)' }} />
+        {/* Subtle Ambient background glows to match How It Works section */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 55% 50% at 12% 28%, rgba(55,105,15,0.38) 0%, transparent 65%), radial-gradient(ellipse 42% 40% at 88% 68%, rgba(40,90,10,0.28) 0%, transparent 65%)",
+          }}
+        />
 
         {/* GHOST "SERVICES" TEXT - Adjusted for perfect placement */}
-        <div
-          ref={bgTextRef}
-          className="absolute top-[12%] left-1/2 -translate-x-1/2 whitespace-nowrap text-[22vw] md:text-[20vw] font-black uppercase tracking-tighter select-none z-0"
-          style={{ color: 'rgba(255,255,255,0.02)' }}
-        >
-          SERVICES
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center pointer-events-none z-0">
+          <div
+            ref={bgTextRef}
+            className="whitespace-nowrap text-[25vw] md:text-[20vw] font-display font-black uppercase tracking-tighter select-none"
+            style={{ 
+              color: 'rgba(241, 245, 249, 0.04)',
+              maskImage: 'linear-gradient(to bottom, transparent 10%, black 50%, transparent 90%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent 10%, black 50%, transparent 90%)'
+            }}
+          >
+            SERVICES
+          </div>
         </div>
 
         {/* Top Left label */}
@@ -110,39 +123,40 @@ export default function ServicesShowcase() {
         </div>
 
         {/* ── THE STUDIO SHOWCASE SCENE ── */}
-        <div className="relative w-full max-w-[1800px] h-full flex flex-col items-center justify-center pt-24 z-10">
+        <div className="relative w-full max-w-[1800px] h-full flex flex-col items-center justify-center pt-24 z-10 overflow-hidden md:overflow-visible">
           
-          {/* TRUCK ASSET */}
-          <div
-            ref={truckRef}
-            className="relative z-20 w-[90vw] lg:w-[65vw] max-w-[1100px] pointer-events-none drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] flex flex-col items-center mb-16 lg:mb-24"
-          >
-            <Image
-              src="/truck-sideView.png"
-              alt="Semi Truck Side Profile"
-              width={1200}
-              height={400}
-              className="w-full h-auto object-contain"
-              priority
-            />
-            {/* The "Thought-Processed" Perspective Grid Road */}
-            <div 
-              className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[150vw] max-w-[2000px] h-[150px] z-0 pointer-events-none"
-              style={{
-                background: 'radial-gradient(ellipse 50% 50% at 50% 0%, rgba(80,200,120,0.15) 0%, transparent 100%)',
-                transform: 'rotateX(75deg)',
-                transformOrigin: 'top center'
-              }}
-            />
-            {/* Core Ground Line directly under tires */}
-            <div className="absolute bottom-[-5%] left-1/2 -translate-x-1/2 w-[90%] h-[2px] bg-gradient-to-r from-transparent via-[#50C878] to-transparent opacity-50 z-10 blur-[1px]" />
-            <div className="absolute bottom-[-5%] left-1/2 -translate-x-1/2 w-[70%] h-[1px] bg-white opacity-40 shadow-[0_0_10px_white] z-10" />
+          {/* Stage for Truck and Road */}
+          <div className="relative w-[90vw] lg:w-[65vw] max-w-[1100px] flex flex-col items-center mb-16 lg:mb-24">
             
-            {/* Contact Shadows (Grounds the tires) */}
-            <div className="absolute bottom-[-6%] left-[5%] w-[90%] h-[12px] bg-black rounded-[100%] blur-[6px] opacity-100 z-[5]" />
-            
-            {/* Massive Ambient Shadow */}
-            <div className="absolute -bottom-[12%] left-[10%] w-[80%] h-[50px] bg-black rounded-[100%] blur-[24px] opacity-100 z-[-1]" />
+            {/* STATIONARY ROAD (Spans full viewport width) */}
+            <div className="absolute -bottom-[4.5%] left-1/2 -translate-x-1/2 w-[100vw] z-0 pointer-events-none flex flex-col items-center">
+              {/* Very subtle studio floor line */}
+              <div className="w-[90vw] md:w-[70vw] h-[1px] bg-gradient-to-r from-transparent via-[#50C878]/20 to-transparent" />
+              <div className="absolute top-0 w-[60vw] md:w-[40vw] h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            </div>
+
+            {/* TRUCK ASSET (Moving) */}
+            <div
+              ref={truckRef}
+              className="relative z-20 w-full pointer-events-none drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
+            >
+              <Image
+                src="/truck-sideView.png"
+                alt="Semi Truck Side Profile"
+                width={1200}
+                height={400}
+                className="w-full h-auto object-contain relative z-10"
+                priority
+              />
+              
+              {/* Dynamic Floor Highlight (Moves with truck to illuminate the stationary floor) */}
+              <div className="absolute -bottom-[4.5%] left-[15%] w-[70%] h-[1px] bg-gradient-to-r from-transparent via-[#50C878]/60 to-transparent shadow-[0_0_15px_rgba(80,200,120,0.5)] z-10" />
+
+              {/* Contact Shadows (Moves with the truck) */}
+              <div className="absolute -bottom-[5%] left-[5%] w-[90%] h-[8px] md:h-[12px] bg-black rounded-[100%] blur-[4px] md:blur-[6px] opacity-100 z-[5]" />
+              {/* Massive Ambient Shadow */}
+              <div className="absolute -bottom-[10%] left-[10%] w-[80%] h-[30px] md:h-[50px] bg-black rounded-[100%] blur-[16px] md:blur-[24px] opacity-100 z-[-1]" />
+            </div>
           </div>
 
           {/* CARDS FOREGROUND (Positioned strictly below the truck) */}

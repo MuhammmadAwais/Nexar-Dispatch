@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { CheckCircle2, Truck, Snowflake, Package, Box, Zap } from 'lucide-react';
+import { Truck, Snowflake, Package, Box, Zap } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -207,7 +207,7 @@ export function ServicesDetail() {
           {/* The scrolling container */}
           <div ref={rightPanelRef} className="absolute left-0 flex items-center px-16 lg:px-32 gap-16 lg:gap-24 min-w-max">
             
-            {equipmentTypes.map((eq, i) => {
+            {equipmentTypes.map((eq) => {
               return (
                 <div key={eq.id} className="w-[500px] lg:w-[600px] h-[600px] shrink-0 relative group">
                   
