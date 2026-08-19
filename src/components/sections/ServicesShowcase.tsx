@@ -89,7 +89,7 @@ export default function ServicesShowcase() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative w-full h-[400vh] z-10 pointer-events-none">
+    <section id="services" ref={containerRef} className="relative w-full h-[400vh] z-10 pointer-events-none">
       <div ref={stickyRef} className="sticky top-0 w-full h-screen overflow-hidden flex flex-col justify-center items-center pointer-events-auto bg-[#000000]">
 
         {/* Subtle Ambient background glows to match How It Works section */}

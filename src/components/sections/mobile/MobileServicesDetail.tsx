@@ -78,7 +78,7 @@ const equipmentTypes = [
 
 export function MobileServicesDetail() {
   return (
-    <section className="w-full bg-[#030502] py-16 flex flex-col relative border-t border-white/5">
+    <section id="equipment-mobile" className="w-full bg-[#030502] py-16 flex flex-col relative border-t border-white/5">
       
       {/* Background glow */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">

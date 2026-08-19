@@ -10,9 +10,9 @@ import Link from "next/link";
 const LINKS = [
   { label: "Home",         href: "/"             },
   { label: "About us",    href: "/about"          },
-  { label: "Services",    href: "/#services"      },
-  { label: "How it works",href: "/#how-it-works"  },
-  { label: "Equipment",   href: "/#equipment"     },
+  { label: "Services",    href: "/#services-mobile" },
+  { label: "How it works",href: "/#how-it-works-mobile" },
+  { label: "Equipment",   href: "/#equipment-mobile" },
   { label: "Contact us",  href: "/contact"       },
 ];
 

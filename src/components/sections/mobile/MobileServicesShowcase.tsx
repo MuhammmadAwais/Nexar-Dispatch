@@ -34,7 +34,7 @@ const services = [
 
 export function MobileServicesShowcase() {
   return (
-    <section className="relative w-full bg-[#000000] py-16 flex flex-col items-center">
+    <section id="services-mobile" className="relative w-full bg-[#000000] py-16 flex flex-col items-center">
       
       {/* Subtle Ambient background glows */}
       <div

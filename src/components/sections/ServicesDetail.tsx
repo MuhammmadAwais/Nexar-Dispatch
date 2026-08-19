@@ -145,7 +145,7 @@ export function ServicesDetail() {
 
   return (
     // Make the outer section very tall (400vh) to allow for scrolling
-    <section ref={containerRef} className="relative w-full h-[400vh] hidden md:block" style={{background: 'transparent'}}>
+    <section id="equipment" ref={containerRef} className="relative w-full h-[400vh] hidden md:block" style={{background: 'transparent'}}>
       
       {/* The sticky container that locks to the screen */}
       <div className="sticky top-0 w-full h-screen overflow-hidden flex bg-[#030502]">
