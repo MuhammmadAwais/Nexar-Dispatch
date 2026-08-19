@@ -81,8 +81,8 @@
   }
   
   ::selection {
-    background-color: var(--color-accent);
-    color: #000;
+    background-color: rgba(80, 200, 120, 0.3);
+    color: inherit;
   }
   
   *:focus-visible {

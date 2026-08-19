@@ -6,12 +6,13 @@ import { Menu, X } from "lucide-react";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { cn } from "../ui/Button";
 import Image from "next/image";
+import Link from "next/link";
 
 const LINKS = [
-  { label: "Home",         href: "#"             },
-  { label: "About us",    href: "#about"         },
-  { label: "Services",    href: "#services"      },
-  { label: "How it works",href: "#how-it-works"  },
+  { label: "Home",         href: "/"             },
+  { label: "About us",    href: "/#about"         },
+  { label: "Services",    href: "/#services"      },
+  { label: "How it works",href: "/#how-it-works"  },
   { label: "Equipment",   href: "/#equipment"     },
   { label: "Contact us",  href: "/contact"       },
 ];
@@ -49,7 +50,7 @@ export function Navbar() {
         )}
       >
         {/* ── 1. Logo (far left) ── */}
-        <a href="#" className="flex items-center gap-2.5 shrink-0 z-10">
+        <Link href="/" className="flex items-center gap-2.5 shrink-0 z-10">
           <Image
             src="/logo.png"
             alt="Nexar Dispatch"
@@ -58,13 +59,13 @@ export function Navbar() {
             className="object-contain w-auto h-[32px] md:h-[40px] brightness-0 invert"
             style={{ width: "auto" }}
           />
-        </a>
+        </Link>
 
         {/* ── 2. Nav pill (center) — hidden on mobile ── */}
         <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2">
           <div className="flex items-center gap-2 rounded-full bg-[#333333]/60 backdrop-blur-md px-6 py-3 shadow-lg border border-white/5">
             {LINKS.map((link, i) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className={cn(
@@ -82,28 +83,28 @@ export function Navbar() {
                 {i !== 0 && (
                   <span className="absolute left-3 right-3 -bottom-1 h-[2px] rounded-full bg-white/80 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out" />
                 )}
-              </a>
+              </Link>
             ))}
           </div>
         </nav>
 
         {/* ── 3. CTA Buttons (far right) — hidden on mobile ── */}
         <div className="hidden lg:flex items-center gap-6 shrink-0 z-10">
-          <a
+          <Link
             href="/contact"
             className="text-[15px] font-medium text-[#F1F5F9] hover:text-[#F1F5F9]/80 transition-colors duration-150"
           >
             Talk to us
-          </a>
-          <a
-            href="#services"
+          </Link>
+          <Link
+            href="/#services"
             className="inline-flex items-center justify-center rounded-full px-7 py-2.5 text-[15px] font-bold text-black shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             style={{
               background: "linear-gradient(90deg, #50C878 0%, #0B3D2E 100%)"
             }}
           >
             Get Started
-          </a>
+          </Link>
         </div>
 
         {/* ── Mobile toggle ── */}
@@ -131,25 +132,25 @@ export function Navbar() {
           >
             <nav className="flex flex-col gap-1 mt-4">
               {LINKS.map((link, i) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  initial={{ opacity: 0, x: -14 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.04, duration: 0.18 }}
-                  className="flex items-center gap-3 text-2xl font-display font-black text-[#F1F5F9] border-b border-white/8 py-4 uppercase tracking-tight transition-colors"
-                >
-                  {i === 0 && (
-                    <span className="w-2 h-2 rounded-full bg-white shrink-0" />
-                  )}
-                  {link.label}
-                </motion.a>
+                <Link key={link.label} href={link.href} passHref legacyBehavior>
+                  <motion.a
+                    onClick={() => setMobileOpen(false)}
+                    initial={{ opacity: 0, x: -14 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.04, duration: 0.18 }}
+                    className="flex items-center gap-3 text-2xl font-display font-black text-[#F1F5F9] border-b border-white/8 py-4 uppercase tracking-tight transition-colors"
+                  >
+                    {i === 0 && (
+                      <span className="w-2 h-2 rounded-full bg-white shrink-0" />
+                    )}
+                    {link.label}
+                  </motion.a>
+                </Link>
               ))}
             </nav>
             <div className="flex flex-col gap-3 pt-8">
-              <a
-                href="#services"
+              <Link
+                href="/#services"
                 onClick={() => setMobileOpen(false)}
                 className="w-full text-center rounded-full py-4 text-lg font-bold text-black"
                 style={{
@@ -157,14 +158,14 @@ export function Navbar() {
                 }}
               >
                 Get Started
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
                 className="w-full text-center rounded-full py-4 text-lg font-semibold text-[#F1F5F9] border border-white/20"
               >
                 Talk to us
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

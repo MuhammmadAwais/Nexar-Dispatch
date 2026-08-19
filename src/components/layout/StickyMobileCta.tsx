@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { Button } from "../ui/Button";
 
 export function StickyMobileCta() {
@@ -47,9 +48,11 @@ export function StickyMobileCta() {
           className="fixed bottom-0 left-0 right-0 z-40 p-4 pb-safe bg-gradient-to-t from-bg via-bg/90 to-transparent lg:hidden pointer-events-none"
         >
           <div className="pointer-events-auto max-w-md mx-auto">
-            <Button size="lg" className="w-full border border-line-bright shadow-[0_0_24px_rgba(47,128,237,0.15)]">
-              Get Started
-            </Button>
+            <Link href="/contact" className="w-full">
+              <Button size="lg" className="w-full border border-line-bright shadow-[0_0_24px_rgba(47,128,237,0.15)]">
+                Get Started
+              </Button>
+            </Link>
           </div>
         </motion.div>
       )}
