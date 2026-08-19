@@ -72,6 +72,10 @@
       radial-gradient(ellipse 70% 50% at 80% 5%, rgba(80, 200, 120, 0.05) 0%, transparent 55%),
       radial-gradient(ellipse 50% 40% at 15% 90%, rgba(80, 200, 120, 0.03) 0%, transparent 50%);
     background-attachment: fixed;
+    
+    /* Firefox scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(80, 200, 120, 0.4) #000000;
   }
 
   body {
@@ -151,4 +155,33 @@
   background: rgba(13, 26, 9, 0.75);
   border: 1px solid rgba(127, 224, 77, 0.25);
   backdrop-filter: blur(20px);
+}
+
+/* ── Custom Scrollbar (WebKit) ── */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+  border-left: 1px solid rgba(80, 200, 120, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(80, 200, 120, 0.35);
+  border-radius: 6px;
+  border: 3px solid #000000; /* creates "padding" effect */
+  background-clip: padding-box;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(80, 200, 120, 0.65);
+  border: 3px solid #000000;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: #000000;
 }
