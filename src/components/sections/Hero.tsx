@@ -65,6 +65,14 @@ export function Hero() {
   const [mousePos, setMousePos] = useState({ x: 500, y: 500 });
   const [, startTransition] = useTransition();
 
+  const handleLineMouseMove = (e: React.MouseEvent<HTMLSpanElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    e.currentTarget.style.setProperty("--x", `${x}px`);
+    e.currentTarget.style.setProperty("--y", `${y}px`);
+  };
+
   useGSAP(() => {
     if (!containerRef.current) return;
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -174,20 +182,67 @@ export function Hero() {
           
           {/* Headline — 3 lines, glow added */}
           <h1
-            className="font-display font-black uppercase text-[#F1F5F9] leading-[1.05] mb-6"
+            className="font-display font-black uppercase leading-[1.05] mb-6"
             style={{
               fontSize: "clamp(2rem, 5vw, 6rem)",
               letterSpacing: "-0.02em",
             }}
           >
-            <span className="block pb-1 w-max">
-              <span className="hero-h1-line block whitespace-nowrap">
-                DISPATCH SERVICES
+            {/* Line 1 */}
+            <span 
+              className="block pb-1 w-max relative group cursor-default"
+              onMouseMove={handleLineMouseMove}
+            >
+              <span className="hero-h1-line block whitespace-nowrap relative">
+                {/* Base Text */}
+                <span style={{ 
+                  color: "rgba(255, 255, 255, 0.1)", 
+                  WebkitTextStroke: "1px rgba(255, 255, 255, 0.5)",
+                  textShadow: "0 0 20px rgba(80, 200, 120, 0.2), 0 0 10px rgba(255, 255, 255, 0.1)"
+                }}>
+                  DISPATCH SERVICES
+                </span>
+                {/* Hover Glow */}
+                <span 
+                  className="absolute top-0 left-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    color: "transparent",
+                    backgroundImage: "radial-gradient(circle 250px at var(--x, 50%) var(--y, 50%), #FFFFFF 0%, #50C878 20%, rgba(80,200,120,0.6) 50%, transparent 80%)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                  }}
+                >
+                  DISPATCH SERVICES
+                </span>
               </span>
             </span>
-            <span className="block pb-1 w-max">
-              <span className="hero-h1-line block whitespace-nowrap">
-                THAT MAXIMIZE
+
+            {/* Line 2 */}
+            <span 
+              className="block pb-1 w-max relative group cursor-default"
+              onMouseMove={handleLineMouseMove}
+            >
+              <span className="hero-h1-line block whitespace-nowrap relative">
+                {/* Base Text */}
+                <span style={{ 
+                  color: "rgba(255, 255, 255, 0.1)", 
+                  WebkitTextStroke: "1px rgba(255, 255, 255, 0.5)",
+                  textShadow: "0 0 20px rgba(80, 200, 120, 0.2), 0 0 10px rgba(255, 255, 255, 0.1)"
+                }}>
+                  THAT MAXIMIZE
+                </span>
+                {/* Hover Glow */}
+                <span 
+                  className="absolute top-0 left-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    color: "transparent",
+                    backgroundImage: "radial-gradient(circle 250px at var(--x, 50%) var(--y, 50%), #FFFFFF 0%, #50C878 20%, rgba(80,200,120,0.6) 50%, transparent 80%)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                  }}
+                >
+                  THAT MAXIMIZE
+                </span>
               </span>
             </span>
             
