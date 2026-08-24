@@ -2,19 +2,19 @@ import { XCircle, CheckCircle2 } from "lucide-react";
 
 export function Solution() {
   const badPoints = [
-    "Disorganized WhatsApp groups & lost load details",
-    "Manual driver tracking & paper BOLs",
-    "No live rate tracking, analytics, or broker sync",
-    "Fragmented driver chats & missing updates",
-    "No integrated invoicing or factoring sync"
+    "Disorganized group chats and lost load details",
+    "Manual tracking, paper BOLs",
+    "No visibility into rate trends",
+    "Chasing brokers for updates yourself",
+    "Invoicing and factoring on your own time"
   ];
 
   const goodPoints = [
-    "All-in-one dispatch dashboard with real-time tracking",
-    "Seamless load assignment with live GPS & digital docs",
-    "Automated metrics, rate negotiations & performance reports",
-    "Built-in unified comms, announcement board & document hub",
-    "Integrated billing, automated factoring & permissions"
+    "One dashboard with real-time load status",
+    "Digital docs and live load tracking",
+    "Rate history and performance tracking per lane",
+    "Dedicated dispatcher handling all broker comms",
+    "Invoicing and factoring submitted same-day"
   ];
 
   return (
@@ -40,13 +40,13 @@ export function Solution() {
         <div className="flex items-center gap-3 mb-6">
           <div className="w-2 h-2 rounded-full bg-[#50C878]" />
           <span className="text-[#50C878] font-bold tracking-[0.15em] text-sm md:text-base uppercase">
-            Why Nexar Dispatch?
+            WHY NEXAR DISPATCH
           </span>
         </div>
 
         {/* Heading */}
         <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-display font-black text-white text-center leading-[1.05] tracking-tighter mb-16 md:mb-20 max-w-4xl drop-shadow-md">
-          There&apos;s a smarter way to<br className="hidden md:block"/> manage your freight
+          A Smarter Way to Run<br className="hidden md:block"/> Your Truck
         </h2>
 
         {/* Comparison Container */}
@@ -57,7 +57,7 @@ export function Solution() {
 
           {/* Left Column (Traditional) */}
           <div className="flex-1 p-8 md:p-12 md:pr-10 bg-[#0a0a0a] rounded-[1.25rem] md:rounded-r-none md:rounded-l-[1.25rem]">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-8 md:mb-10">Other Tools</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-8 md:mb-10">Doing It Yourself / Other Services</h3>
             <ul className="space-y-6 md:space-y-8">
               {badPoints.map((point, i) => (
                 <li key={i} className="flex items-start gap-4">

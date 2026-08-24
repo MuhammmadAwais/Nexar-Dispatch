@@ -16,26 +16,26 @@ const STEPS = [
   {
     id: 1,
     Icon: ClipboardCheck,
-    title: "Submit Required Paperwork",
-    desc: "Get started instantly by submitting your MC authority, insurance, and carrier packet. Our onboarding team reviews and approves same-day so you're dispatching within 24 hours.",
+    title: "Submit Your Paperwork",
+    desc: "Send us your MC authority, insurance certificate, and carrier packet. Our onboarding team reviews and approves same-day, so you're dispatching within 24 hours.",
   },
   {
     id: 2,
     Icon: Container,
     title: "Get Matched With Your First 2 Free Loads",
-    desc: "We scout the load boards and broker networks to find high-paying freight that matches your equipment, preferred lanes, and rate expectations — no guesswork.",
+    desc: "We scan the load boards and our broker network for freight that fits your equipment, your preferred lanes, and your rate floor — no guesswork, no lowball offers.",
   },
   {
     id: 3,
     Icon: Truck,
-    title: "Worry-Free As A VIP Carrier",
-    desc: "Sit back while your dedicated dispatcher handles rate negotiations, broker communications, check calls, and paperwork — keeping your wheels turning profitably.",
+    title: "Run as a VIP Carrier",
+    desc: "Your dedicated dispatcher handles rate negotiation, broker calls, check calls, and paperwork. You drive — we run the back office.",
   },
   {
     id: 4,
     Icon: BadgePercent,
-    title: "Continue Dispatching At Unbeatable Rates",
-    desc: "Lock in consistent revenue with our proven dispatch process. We continuously optimize your lane mix and rate-per-mile so your earnings only go up over time.",
+    title: "Keep Dispatching at Better Rates",
+    desc: "We track your lane history and rate performance over time, tightening your lane mix so every week beats the last.",
   },
 ];
 
@@ -142,7 +142,8 @@ export function MobileHowItWorks() {
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0"
         style={{
-          background: "radial-gradient(ellipse 70% 60% at 50% 20%, rgba(55,105,15,0.25) 0%, transparent 70%)",
+          background:
+            "radial-gradient(ellipse 70% 60% at 50% 20%, rgba(55,105,15,0.25) 0%, transparent 70%)",
         }}
       />
 
@@ -152,16 +153,19 @@ export function MobileHowItWorks() {
             How It Works
           </p>
           <h2 className="font-display font-black text-[#F1F5F9] uppercase leading-[1.1] mb-4 text-3xl">
-            Seamless Logistics In 4 Steps
+            Seamless Dispatching In 4 Steps
           </h2>
           <p className="text-[#94A3B8] mx-auto text-[0.9rem] leading-relaxed max-w-[300px]">
-            Finally, A Dispatch Service That Helps Truckers Like You Operate Profitably And Stress-Free
+            A dispatch service built to keep you profitable and off the phone.
           </p>
         </div>
 
         <div className="flex flex-col relative max-w-sm mx-auto">
           {STEPS.map((step, i) => (
-            <div key={step.id} className="flex flex-col items-center gap-4 py-3">
+            <div
+              key={step.id}
+              className="flex flex-col items-center gap-4 py-3"
+            >
               <div
                 className="flex items-center justify-center rounded-full z-10 relative"
                 style={{
@@ -172,11 +176,23 @@ export function MobileHowItWorks() {
                   boxShadow: "0 0 16px rgba(127,224,77,0.14)",
                 }}
               >
-                {(() => { const { Icon } = step; return <Icon style={{ width: 20, height: 20, color: "#50C878", strokeWidth: 1.5 }} />; })()}
+                {(() => {
+                  const { Icon } = step;
+                  return (
+                    <Icon
+                      style={{
+                        width: 20,
+                        height: 20,
+                        color: "#50C878",
+                        strokeWidth: 1.5,
+                      }}
+                    />
+                  );
+                })()}
               </div>
-              
+
               <MobileStepCard step={step} index={i} />
-              
+
               {i < STEPS.length - 1 && (
                 <div className="flex flex-col items-center gap-1 py-1 opacity-50">
                   <div style={{ width: 1, height: 24, background: "#555" }} />
@@ -193,7 +209,8 @@ export function MobileHowItWorks() {
           aria-hidden
           className="pointer-events-none absolute inset-0 z-0"
           style={{
-            background: "radial-gradient(ellipse 100% 70% at 50% 100%, rgba(45,110,10,0.4) 0%, transparent 80%)",
+            background:
+              "radial-gradient(ellipse 100% 70% at 50% 100%, rgba(45,110,10,0.4) 0%, transparent 80%)",
           }}
         />
 
@@ -209,8 +226,10 @@ export function MobileHowItWorks() {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
-              maskImage: "linear-gradient(to bottom, transparent 0%, black 30%, black 100%)",
-              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 30%, black 100%)",
+              maskImage:
+                "linear-gradient(to bottom, transparent 0%, black 30%, black 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, transparent 0%, black 30%, black 100%)",
             }}
           >
             NEXAR
@@ -227,7 +246,8 @@ export function MobileHowItWorks() {
             transform: "translateX(-40%)",
             width: "80%",
             height: 30,
-            background: "radial-gradient(ellipse 90% 100% at 50% 50%, rgba(245,140,30,0.3) 0%, transparent 70%)",
+            background:
+              "radial-gradient(ellipse 90% 100% at 50% 50%, rgba(245,140,30,0.3) 0%, transparent 70%)",
             filter: "blur(8px)",
           }}
         />

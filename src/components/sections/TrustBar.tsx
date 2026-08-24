@@ -140,7 +140,10 @@ export function TrustBar() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative w-full bg-black overflow-hidden border-y border-white/8 py-20 md:py-32">
+    <section
+      ref={containerRef}
+      className="relative w-full bg-black overflow-hidden border-y border-white/8 py-20 md:py-32"
+    >
       <style>{`
         @keyframes scroll-left {
           0% { transform: translateX(0); }
@@ -183,8 +186,10 @@ export function TrustBar() {
           fill
           className="object-cover"
           style={{
-            maskImage: "linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)"
+            maskImage:
+              "linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)",
           }}
         />
       </div>
@@ -194,14 +199,16 @@ export function TrustBar() {
         aria-hidden="true"
         className="pointer-events-none absolute top-0 -left-40 w-[600px] h-[600px]"
         style={{
-          background: "radial-gradient(circle at center, rgba(127,224,77,0.06) 0%, transparent 60%)",
+          background:
+            "radial-gradient(circle at center, rgba(127,224,77,0.06) 0%, transparent 60%)",
         }}
       />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-0 -right-40 w-[500px] h-[500px]"
         style={{
-          background: "radial-gradient(circle at center, rgba(127,224,77,0.06) 0%, transparent 60%)",
+          background:
+            "radial-gradient(circle at center, rgba(127,224,77,0.06) 0%, transparent 60%)",
         }}
       />
 
@@ -209,7 +216,6 @@ export function TrustBar() {
         {/* Header & Stats Container */}
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 xl:px-12 mb-16 md:mb-20">
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12">
-            
             {/* Left: Text */}
             <div className="trust-header max-w-xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-[#50C878]/30 bg-[#50C878]/10">
@@ -219,11 +225,13 @@ export function TrustBar() {
                 </span>
               </div>
               <h2 className="text-4xl md:text-6xl font-black font-display text-[#F1F5F9] mb-4 leading-[1.1] tracking-tight">
-                Real drivers.<br />
+                Real drivers.
+                <br />
                 <span className="text-[#50C878]">Real results.</span>
               </h2>
               <p className="text-[#888] text-base md:text-lg leading-relaxed max-w-md">
-                From owner-operators to growing fleets — here is what the community says about Nexar Dispatch.
+                From single-truck owner-operators to growing fleets — here's
+                what carriers say about running with Nexar.
               </p>
             </div>
 
@@ -232,14 +240,23 @@ export function TrustBar() {
               {/* Avatars preview stack */}
               <div className="trust-stat hidden sm:flex flex-col gap-2">
                 <div className="flex -space-x-3">
-                  {[1,2,3,4,5].map((num) => (
-                    <div key={num} className="w-10 h-10 rounded-full border-2 border-black overflow-hidden relative">
-                       <Image src={`/avatars/Girlmage${num}.png`} alt="Driver" fill className="object-cover" />
+                  {[1, 2, 3, 4, 5].map((num) => (
+                    <div
+                      key={num}
+                      className="w-10 h-10 rounded-full border-2 border-black overflow-hidden relative"
+                    >
+                      <Image
+                        src={`/avatars/Girlmage${num}.png`}
+                        alt="Driver"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                   ))}
                 </div>
                 <p className="text-xs text-[#666]">
-                  Loved by <span className="text-[#F1F5F9] font-bold">500+</span> drivers
+                  Loved by{" "}
+                  <span className="text-[#F1F5F9] font-bold">500+</span> drivers
                 </p>
               </div>
 
@@ -249,7 +266,9 @@ export function TrustBar() {
                     <span className="text-3xl md:text-4xl font-black text-[#F1F5F9]">
                       {stat.value}
                     </span>
-                    {stat.isStar && <Star className="w-5 h-5 fill-[#50C878] text-[#50C878] mb-2" />}
+                    {stat.isStar && (
+                      <Star className="w-5 h-5 fill-[#50C878] text-[#50C878] mb-2" />
+                    )}
                   </div>
                   <span className="text-[#666] text-xs uppercase tracking-widest font-bold">
                     {stat.label}
@@ -257,20 +276,20 @@ export function TrustBar() {
                 </div>
               ))}
             </div>
-
           </div>
         </div>
 
         {/* Marquee Rows Container */}
         <div className="relative w-full pause-on-hover overflow-hidden flex flex-col gap-6 pt-4 pb-8">
-          
           {/* Edge fade masks */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-32 bg-gradient-to-r from-black via-black/80 to-transparent z-20" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-32 bg-gradient-to-l from-black via-black/80 to-transparent z-20" />
 
           {/* Top Row (Scroll Left) */}
           <div className="flex w-fit">
-            <div className={`flex gap-6 px-3 ${!reducedMotion ? 'animate-scroll-left' : ''}`}>
+            <div
+              className={`flex gap-6 px-3 ${!reducedMotion ? "animate-scroll-left" : ""}`}
+            >
               {/* Duplicated for seamless loop */}
               {[...TOP_ROW, ...TOP_ROW].map((item, i) => (
                 <TestimonialCard key={i} item={item} />
@@ -280,14 +299,15 @@ export function TrustBar() {
 
           {/* Bottom Row (Scroll Right) */}
           <div className="flex w-fit ml-[-20%] md:ml-[-10%]">
-            <div className={`flex gap-6 px-3 ${!reducedMotion ? 'animate-scroll-right' : ''}`}>
+            <div
+              className={`flex gap-6 px-3 ${!reducedMotion ? "animate-scroll-right" : ""}`}
+            >
               {/* Duplicated for seamless loop */}
               {[...BOTTOM_ROW, ...BOTTOM_ROW].map((item, i) => (
                 <TestimonialCard key={i} item={item} />
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>

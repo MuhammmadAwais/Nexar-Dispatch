@@ -5,34 +5,34 @@ import React, { useRef } from 'react';
 import Image from 'next/image';
 
 
-import { Plane, Ship, ShieldCheck, Warehouse, Truck, ArrowRight } from 'lucide-react';
+import { DollarSign, ShieldCheck, MapPin, Wallet, UserCheck, ArrowRight } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 const services = [
   {
-    title: 'AIR FREIGHT',
-    description: 'Express, priority, and deferred options across global trade lanes — managed end to end for speed.',
-    icon: Plane,
+    title: 'Load Booking & Rate Negotiation',
+    description: 'We search load boards and our direct broker relationships to find freight that matches your equipment and lanes, then negotiate every rate on your behalf before you commit to a load.',
+    icon: DollarSign,
   },
   {
-    title: 'OCEAN FREIGHT',
-    description: 'FCL, LCL, and specialized cargo movements, with structured carrier selection for cost and reliability.',
-    icon: Ship,
-  },
-  {
-    title: 'CUSTOMS BROKERAGE',
-    description: 'In-house licensed brokerage covering classification, compliance, and quarantine — full control.',
+    title: 'Compliance & Carrier Paperwork',
+    description: "MC authority verification, W-9s, insurance documentation, and broker carrier packets — handled and filed so you're never stuck on hold with a broker's onboarding desk.",
     icon: ShieldCheck,
   },
   {
-    title: 'WAREHOUSING & 3PL',
-    description: 'Scalable storage, pick and pack, and distribution — fully integrated with freight and transport operations.',
-    icon: Warehouse,
+    title: 'Check Calls & Load Tracking',
+    description: 'We manage check calls and keep shippers and brokers updated on your ETA, so you can focus on driving instead of fielding status calls.',
+    icon: MapPin,
   },
   {
-    title: 'DOMESTIC TRANSPORT',
-    description: 'Local, metro, and interstate transport managed for consistent service levels and full delivery visibility.',
-    icon: Truck,
+    title: 'Invoicing & Factoring Support',
+    description: 'Once a load delivers, we submit your BOLs and invoices and coordinate directly with your factoring company so you get paid faster.',
+    icon: Wallet,
+  },
+  {
+    title: 'Dedicated Dispatcher',
+    description: 'One point of contact who learns your lanes, your equipment, and your rate expectations — not a call center rotation.',
+    icon: UserCheck,
   },
 ];
 
@@ -120,7 +120,7 @@ export default function ServicesShowcase() {
         {/* Top Left label */}
         <div className="absolute top-8 left-8 text-xs md:text-sm font-bold tracking-widest text-[#50C878] z-10 uppercase flex items-center gap-2">
           <span className="w-2 h-2 bg-[#50C878] rounded-full animate-pulse"></span>
-          Our Expertise
+          SERVICES
         </div>
 
         {/* ── THE STUDIO SHOWCASE SCENE ── */}

@@ -57,11 +57,12 @@ export function Footer() {
         <div className="md:col-span-4 lg:col-span-3 flex flex-col items-start">
           <a href="#" className="flex items-center gap-2.5 shrink-0 z-10 mb-8 opacity-80 hover:opacity-100 transition-opacity">
             <Image
-              src="/logo.png"
+              src="/longForm-white-logo.png"
               alt="Nexar Dispatch"
-              width={180}
-              height={40}
-              className="object-contain w-auto h-[32px] md:h-[40px] brightness-0 invert"
+              width={300}
+              height={90}
+              unoptimized
+              className="object-contain w-auto h-[36px] md:h-[48px] xl:h-[56px]"
               style={{ width: "auto" }}
             />
           </a>

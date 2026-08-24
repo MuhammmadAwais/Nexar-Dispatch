@@ -73,11 +73,15 @@ export function Navbar() {
         {/* ── 1. Logo (far left) ── */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0 z-10">
           <Image
-            src="/logo.png"
+            src={scrolled ? "/shortForm-white-logo.png" : "/longForm-white-logo.png"}
             alt="Nexar Dispatch"
-            width={180}
-            height={40}
-            className="object-contain w-auto h-[32px] md:h-[40px] brightness-0 invert"
+            width={300}
+            height={90}
+            unoptimized
+            className={cn(
+              "object-contain w-auto transition-all duration-300",
+              scrolled ? "h-[24px] md:h-[32px]" : "h-[36px] md:h-[48px] xl:h-[56px]"
+            )}
             style={{ width: "auto" }}
           />
         </Link>

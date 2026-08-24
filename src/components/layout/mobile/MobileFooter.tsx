@@ -28,11 +28,12 @@ export function MobileFooter() {
         <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
           <a href="#" className="flex items-center gap-2.5 shrink-0 z-10 mb-6 opacity-80 hover:opacity-100 transition-opacity">
             <Image
-              src="/logo.png"
+              src="/longForm-white-logo.png"
               alt="Nexar Dispatch"
-              width={160}
-              height={36}
-              className="object-contain w-auto h-[28px] brightness-0 invert"
+              width={240}
+              height={72}
+              unoptimized
+              className="object-contain w-auto h-[32px] sm:h-[40px]"
               style={{ width: "auto" }}
             />
           </a>

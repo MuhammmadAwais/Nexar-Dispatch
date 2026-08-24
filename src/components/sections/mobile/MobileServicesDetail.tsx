@@ -9,12 +9,12 @@ const equipmentTypes = [
     name: 'Dry Van',
     icon: Truck,
     number: '/01',
-    rate: '$2.00',
+    rate: '$2.10',
     subtitle: 'per mile',
     heroTitle: 'Dry Van',
-    heroDesc: 'We keep your dry van moving with minimal deadhead. Tap into our extensive network of consumer goods and retail shippers for consistent, year-round stability.',
+    heroDesc: 'Consistent freight from retail and consumer goods shippers, with lane planning that keeps deadhead miles down.',
     highlights: [
-      'Consistent daily loads from major retailers',
+      'Steady, year-round load volume',
       'Minimal deadhead between drop-offs',
     ],
   },
@@ -23,13 +23,13 @@ const equipmentTypes = [
     name: 'Reefer',
     icon: Snowflake,
     number: '/02',
-    rate: '$2.30',
+    rate: '$2.45',
     subtitle: 'per mile',
     heroTitle: 'Reefer',
-    heroDesc: 'Produce-season pros. We move you into seasonal lanes before the spike — not after it\'s gone. Washouts, lumpers, late docks? We handle the chaos.',
+    heroDesc: 'We get you into seasonal produce lanes early — and handle the lumper fees, washouts, and late docks that come with the territory.',
     highlights: [
-      'Early access to high-paying seasonal lanes',
-      'Complete lumper and washout assistance'
+      'Early access to seasonal rate spikes',
+      'Lumper and washout coordination'
     ],
   },
   {
@@ -37,13 +37,13 @@ const equipmentTypes = [
     name: 'Flatbed',
     icon: Package,
     number: '/03',
-    rate: '$2.50',
+    rate: '$2.65',
     subtitle: 'per mile',
     heroTitle: 'Flatbed',
-    heroDesc: 'No Tarp, No Pay? No Load. We secure top-paying specialized freight, oversized loads, and construction materials with strictly vetted brokers.',
+    heroDesc: "Specialized and oversized freight from brokers we've vetted directly, so you're not chasing payment after delivery.",
     highlights: [
-      'High-paying specialized & oversized loads',
-      'Rigorous broker vetting for reliable payouts'
+      'Access to specialized/oversized loads',
+      'Broker vetting before you commit to a load'
     ],
   },
   {
@@ -51,13 +51,13 @@ const equipmentTypes = [
     name: 'Power Only',
     icon: Zap,
     number: '/04',
-    rate: '$2.00',
+    rate: '$1.90',
     subtitle: 'per mile',
     heroTitle: 'Power Only',
-    heroDesc: 'No Trailer, No Wait, No Problem. We line up preloaded trailers so you drop, hook, and go. Get priority lanes from big box shippers.',
+    heroDesc: 'Preloaded trailers lined up so you drop, hook, and go — including priority freight from major retail shippers.',
     highlights: [
-      'Drop, hook, and go — no time wasted',
-      'Priority lanes from Amazon and Walmart'
+      'Drop-and-hook loads ready to go',
+      'Priority access to big-box retail lanes'
     ],
   },
   {
@@ -65,13 +65,13 @@ const equipmentTypes = [
     name: 'Box Truck',
     icon: Box,
     number: '/05',
-    rate: '$1.5-$2',
+    rate: '$1.75',
     subtitle: 'per mile',
     heroTitle: 'Box Truck',
-    heroDesc: 'Maximize your box truck with expedited loads and LTL combining to ensure your cargo space is always generating premium revenue.',
+    heroDesc: "Expedited and LTL freight matched to maximize what you're hauling on every run.",
     highlights: [
-      'Strategic LTL combinations for max profit',
-      'Access to high-paying expedited freight'
+      'LTL combination for fuller loads',
+      'Access to expedited freight opportunities'
     ],
   }
 ];

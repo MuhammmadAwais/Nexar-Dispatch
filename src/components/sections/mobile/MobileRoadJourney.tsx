@@ -61,8 +61,14 @@ export function MobileRoadJourney() {
       
       {/* Header */}
       <div className="relative z-10 px-6 text-center mb-16">
+        <div className="flex items-center justify-center gap-2 mb-3">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#50C878]" />
+          <span className="text-[#50C878] font-bold tracking-[0.15em] text-[10px] uppercase">
+            FEATURES
+          </span>
+        </div>
         <h2 className="text-3xl font-display font-black text-[#F1F5F9] uppercase leading-[1.1] mb-4">
-          The Road To <span className="text-[#50C878]">Profitability</span>
+          Smarter Booking. <span className="text-[#50C878]">Total Visibility.</span> Zero Downtime.
         </h2>
         <p className="text-[#94A3B8] text-[0.95rem] leading-relaxed max-w-sm mx-auto">
           We handle the back-office chaos so you can focus on driving.
@@ -93,37 +99,28 @@ export function MobileRoadJourney() {
           
           <div className="road-mobile-text relative">
             <div className="absolute -left-[45px] top-1.5 w-3 h-3 rounded-full bg-black border-2 border-[#50C878] shadow-[0_0_10px_#50C878] z-30" />
-            <span className="text-[#50C878] text-[10px] font-bold tracking-widest uppercase mb-1 block">Phase 1</span>
-            <h3 className="text-xl font-black text-[#F1F5F9] uppercase tracking-tight mb-2">Setup & Sync</h3>
+            <span className="text-[#50C878] text-[10px] font-bold tracking-widest uppercase mb-1 block">01</span>
+            <h3 className="text-xl font-black text-[#F1F5F9] uppercase tracking-tight mb-2">Smarter Load Matching</h3>
             <p className="text-[#94A3B8] text-sm leading-relaxed">
-              We gather your preferences, lanes, and equipment details. Your dedicated dispatcher learns exactly how you like to run.
+              We match loads to your lanes, equipment, and rate floor — not whatever&apos;s left on the board at the end of the day.
             </p>
           </div>
 
           <div className="road-mobile-text relative">
             <div className="absolute -left-[45px] top-1.5 w-3 h-3 rounded-full bg-black border-2 border-[#50C878] shadow-[0_0_10px_#50C878] z-30" />
-            <span className="text-[#50C878] text-[10px] font-bold tracking-widest uppercase mb-1 block">Phase 2</span>
-            <h3 className="text-xl font-black text-[#F1F5F9] uppercase tracking-tight mb-2">High-Paying Lanes</h3>
+            <span className="text-[#50C878] text-[10px] font-bold tracking-widest uppercase mb-1 block">02</span>
+            <h3 className="text-xl font-black text-[#F1F5F9] uppercase tracking-tight mb-2">Always in the Loop</h3>
             <p className="text-[#94A3B8] text-sm leading-relaxed">
-              We leverage our extensive broker network and load board tech to find freight that matches your exact criteria and rate expectations.
+              Live updates on load status, so you and your dispatcher are always on the same page from pickup to delivery.
             </p>
           </div>
 
           <div className="road-mobile-text relative">
             <div className="absolute -left-[45px] top-1.5 w-3 h-3 rounded-full bg-black border-2 border-[#50C878] shadow-[0_0_10px_#50C878] z-30" />
-            <span className="text-[#50C878] text-[10px] font-bold tracking-widest uppercase mb-1 block">Phase 3</span>
-            <h3 className="text-xl font-black text-[#F1F5F9] uppercase tracking-tight mb-2">Negotiation</h3>
+            <span className="text-[#50C878] text-[10px] font-bold tracking-widest uppercase mb-1 block">03</span>
+            <h3 className="text-xl font-black text-[#F1F5F9] uppercase tracking-tight mb-2">Paid On Time, Every Time</h3>
             <p className="text-[#94A3B8] text-sm leading-relaxed">
-              We handle the back-and-forth, fighting for every cent per mile while you drive. Once secured, we handle the rate cons.
-            </p>
-          </div>
-
-          <div className="road-mobile-text relative">
-            <div className="absolute -left-[45px] top-1.5 w-3 h-3 rounded-full bg-black border-2 border-[#50C878] shadow-[0_0_10px_#50C878] z-30" />
-            <span className="text-[#50C878] text-[10px] font-bold tracking-widest uppercase mb-1 block">Phase 4</span>
-            <h3 className="text-xl font-black text-[#F1F5F9] uppercase tracking-tight mb-2">Paid Faster</h3>
-            <p className="text-[#94A3B8] text-sm leading-relaxed">
-              We submit your PODs, handle invoicing, and interface with your factoring company so you get paid immediately without the paperwork headache.
+              From BOL to invoice to factoring submission, we keep your paperwork moving so payment isn&apos;t held up on your end.
             </p>
           </div>
 

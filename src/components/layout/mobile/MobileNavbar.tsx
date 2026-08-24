@@ -49,11 +49,14 @@ export function MobileNavbar() {
       >
         <Link href="/" className="flex items-center gap-2 shrink-0 z-10">
           <Image
-            src="/logo.png"
+            src={scrolled ? "/shortForm-white-logo.png" : "/longForm-white-logo.png"}
             alt="Nexar Dispatch"
-            width={140}
-            height={30}
-            className="object-contain w-auto h-[28px] brightness-0 invert"
+            width={240}
+            height={72}
+            unoptimized
+            className={`object-contain w-auto transition-all duration-300 ${
+              scrolled ? "h-[22px] sm:h-[26px]" : "h-[32px] sm:h-[40px]"
+            }`}
           />
         </Link>
 

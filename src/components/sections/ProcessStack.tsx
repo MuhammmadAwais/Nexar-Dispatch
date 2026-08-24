@@ -8,31 +8,31 @@ const PROCESS_STEPS = [
   {
     num: "/01",
     title: "Carrier Onboarding",
-    desc: "We analyze your fleet's capabilities, preferred lanes, and revenue goals to tailor a strategy specifically for you.",
+    desc: "We learn your equipment, preferred lanes, and revenue goals so your dispatch strategy is built around you, not a generic playbook.",
     img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&q=80",
   },
   {
     num: "/02",
     title: "Setup & Compliance",
-    desc: "We handle all the heavy paperwork—MC authority checks, W-9s, insurance certificates, and broker packet setups.",
+    desc: "MC authority checks, W-9s, insurance certificates, and broker packet setup — handled before you're ever waiting on a load.",
     img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80",
   },
   {
     num: "/03",
     title: "Strategic Booking",
-    desc: "Leveraging our broker network and market analytics, we negotiate the highest-paying freight for your trucks.",
+    desc: "We use our broker relationships and market data to book freight that matches your rate expectations, not just whatever's available.",
     img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=80",
   },
   {
     num: "/04",
-    title: "24/7 Load Management",
-    desc: "We manage check calls, route optimization, and act as your dedicated back-office support from pickup to delivery.",
+    title: "Ongoing Load Management",
+    desc: "Check calls, route coordination, and back-office support from pickup to delivery.",
     img: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&q=80",
   },
   {
     num: "/05",
     title: "Invoicing & Factoring",
-    desc: "Once the load is delivered, we immediately handle the invoicing, BOL submissions, and factoring so you get paid faster.",
+    desc: "Once delivered, we handle BOL submission and invoicing and coordinate with your factoring company so payment isn't delayed on our end.",
     img: "https://images.unsplash.com/photo-1504198458649-3128b932f49e?w=1200&q=80",
   },
 ];
@@ -54,9 +54,9 @@ export function ProcessStack() {
             </div>
             
             <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-display font-black leading-[1.05] tracking-tighter">
-              <span className="block text-white">One partner.</span>
-              <span className="block text-[#50C878]">Total control.</span>
-              <span className="block text-[#50C878]">Zero hassle.</span>
+              <span className="block text-white">One Dispatcher.</span>
+              <span className="block text-[#50C878]">Total Control.</span>
+              <span className="block text-[#50C878]">Zero Hassle.</span>
             </h2>
           </div>
           

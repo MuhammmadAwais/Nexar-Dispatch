@@ -135,7 +135,10 @@ export function MobileTrustBar() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative w-full bg-black overflow-hidden border-y border-white/8 py-16">
+    <section
+      ref={containerRef}
+      className="relative w-full bg-black overflow-hidden border-y border-white/8 py-16"
+    >
       <style>{`
         @keyframes scroll-left {
           0% { transform: translateX(0); }
@@ -170,7 +173,6 @@ export function MobileTrustBar() {
         {/* Header & Stats Container */}
         <div className="px-5 mb-12">
           <div className="flex flex-col gap-10">
-            
             {/* Top Text */}
             <div className="mobile-trust-header text-center">
               <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-[#50C878]/30 bg-[#50C878]/10">
@@ -180,11 +182,13 @@ export function MobileTrustBar() {
                 </span>
               </div>
               <h2 className="text-3xl font-black font-display text-[#F1F5F9] mb-3 leading-[1.1] tracking-tight">
-                Real drivers.<br />
+                Real drivers.
+                <br />
                 <span className="text-[#50C878]">Real results.</span>
               </h2>
               <p className="text-[#888] text-[0.9rem] leading-relaxed max-w-sm mx-auto">
-                From owner-operators to growing fleets — here is what the community says about Nexar Dispatch.
+                From single-truck owner-operators to growing fleets — here's
+                what carriers say about running with Nexar.
               </p>
             </div>
 
@@ -192,24 +196,38 @@ export function MobileTrustBar() {
             <div className="mobile-trust-stats-container grid grid-cols-2 gap-y-8 gap-x-4 place-items-center">
               <div className="mobile-trust-stat flex flex-col items-center gap-1 col-span-2 pb-2">
                 <div className="flex -space-x-2 mb-1">
-                  {[1,2,3,4].map((num) => (
-                    <div key={num} className="w-8 h-8 rounded-full border border-black overflow-hidden relative">
-                       <Image src={`/avatars/Girlmage${num}.png`} alt="Driver" fill className="object-cover" />
+                  {[1, 2, 3, 4].map((num) => (
+                    <div
+                      key={num}
+                      className="w-8 h-8 rounded-full border border-black overflow-hidden relative"
+                    >
+                      <Image
+                        src={`/avatars/Girlmage${num}.png`}
+                        alt="Driver"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                   ))}
                 </div>
                 <p className="text-[10px] text-[#666]">
-                  Loved by <span className="text-[#F1F5F9] font-bold">500+</span> drivers
+                  Loved by{" "}
+                  <span className="text-[#F1F5F9] font-bold">500+</span> drivers
                 </p>
               </div>
 
               {STATS.map((stat, i) => (
-                <div key={i} className="mobile-trust-stat flex flex-col items-center gap-1">
+                <div
+                  key={i}
+                  className="mobile-trust-stat flex flex-col items-center gap-1"
+                >
                   <div className="flex items-center gap-1">
                     <span className="text-2xl font-black text-[#F1F5F9]">
                       {stat.value}
                     </span>
-                    {stat.isStar && <Star className="w-4 h-4 fill-[#50C878] text-[#50C878] mb-1" />}
+                    {stat.isStar && (
+                      <Star className="w-4 h-4 fill-[#50C878] text-[#50C878] mb-1" />
+                    )}
                   </div>
                   <span className="text-[#666] text-[9px] uppercase tracking-widest font-bold">
                     {stat.label}
@@ -217,7 +235,6 @@ export function MobileTrustBar() {
                 </div>
               ))}
             </div>
-
           </div>
         </div>
 
@@ -229,7 +246,9 @@ export function MobileTrustBar() {
 
           {/* Top Row (Scroll Left) */}
           <div className="flex w-fit">
-            <div className={`flex gap-4 px-2 ${!reducedMotion ? 'animate-scroll-left' : ''}`}>
+            <div
+              className={`flex gap-4 px-2 ${!reducedMotion ? "animate-scroll-left" : ""}`}
+            >
               {[...TOP_ROW, ...TOP_ROW].map((item, i) => (
                 <MobileTestimonialCard key={i} item={item} />
               ))}
@@ -238,7 +257,9 @@ export function MobileTrustBar() {
 
           {/* Bottom Row (Scroll Right) */}
           <div className="flex w-fit ml-[-20%]">
-            <div className={`flex gap-4 px-2 ${!reducedMotion ? 'animate-scroll-right' : ''}`}>
+            <div
+              className={`flex gap-4 px-2 ${!reducedMotion ? "animate-scroll-right" : ""}`}
+            >
               {[...BOTTOM_ROW, ...BOTTOM_ROW].map((item, i) => (
                 <MobileTestimonialCard key={i} item={item} />
               ))}

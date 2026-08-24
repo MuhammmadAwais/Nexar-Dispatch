@@ -4,19 +4,19 @@ import { XCircle, CheckCircle2 } from "lucide-react";
 
 export function MobileSolution() {
   const badPoints = [
-    "Disorganized WhatsApp groups & lost details",
-    "Manual driver tracking & paper BOLs",
-    "No live rate tracking or analytics",
-    "Fragmented driver chats & updates",
-    "No integrated invoicing or sync"
+    "Disorganized group chats and lost load details",
+    "Manual tracking, paper BOLs",
+    "No visibility into rate trends",
+    "Chasing brokers for updates yourself",
+    "Invoicing and factoring on your own time"
   ];
 
   const goodPoints = [
-    "All-in-one dashboard & real-time tracking",
-    "Seamless load assignment & digital docs",
-    "Automated metrics & performance reports",
-    "Unified comms & announcement board",
-    "Integrated billing & automated factoring"
+    "One dashboard with real-time load status",
+    "Digital docs and live load tracking",
+    "Rate history and performance tracking per lane",
+    "Dedicated dispatcher handling all broker comms",
+    "Invoicing and factoring submitted same-day"
   ];
 
   return (
@@ -40,13 +40,13 @@ export function MobileSolution() {
         <div className="flex items-center justify-center gap-2 mb-4">
           <div className="w-1.5 h-1.5 rounded-full bg-[#50C878]" />
           <span className="text-[#50C878] font-bold tracking-[0.15em] text-[10px] uppercase">
-            Why Nexar Dispatch?
+            WHY NEXAR DISPATCH
           </span>
         </div>
 
         {/* Heading */}
         <h2 className="text-3xl font-display font-black text-white text-center leading-[1.1] tracking-tight mb-12">
-          A smarter way to manage your freight
+          A Smarter Way to Run Your Truck
         </h2>
 
         {/* Comparison Stack */}
@@ -54,7 +54,7 @@ export function MobileSolution() {
           
           {/* Top (Traditional) */}
           <div className="w-full bg-[#0a0a0a] border border-white/5 rounded-[1.25rem] p-6 shadow-xl">
-            <h3 className="text-lg font-bold text-white mb-6">Other Tools</h3>
+            <h3 className="text-lg font-bold text-white mb-6">Doing It Yourself / Other Services</h3>
             <ul className="space-y-4">
               {badPoints.map((point, i) => (
                 <li key={i} className="flex items-start gap-3">

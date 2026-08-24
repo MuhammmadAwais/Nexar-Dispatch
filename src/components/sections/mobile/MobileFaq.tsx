@@ -6,24 +6,29 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FAQS = [
   {
-    category: "PLATFORM",
+    category: "OPERATIONS",
     question: "Is Nexar Dispatch only for large fleets?",
-    answer: "Not at all! Whether you are an owner-operator with a single truck or a growing fleet with 50+ assets, our platform scales to fit your exact needs. We tailor our dispatching strategies to maximize your specific revenue goals."
+    answer: "Not at all. Whether you're running one truck or fifty, we build a dispatch strategy around your specific equipment, lanes, and revenue goals."
   },
   {
     category: "BILLING",
     question: "How does your invoicing and factoring work?",
-    answer: "We handle it instantly. As soon as a load is delivered, we submit the BOLs and necessary paperwork to your factoring company. You get paid faster without spending your weekends catching up on administrative tasks."
+    answer: "Once a load delivers, we submit your BOL and invoice and coordinate directly with your factoring company so payment isn't held up waiting on paperwork from our end."
   },
   {
     category: "COMPLIANCE",
-    question: "Do you help with MC authority setup and compliance?",
-    answer: "Yes. Our team manages the heavy paperwork including MC authority checks, W-9s, insurance certificates, and broker packet setups to ensure you remain fully compliant and ready to haul."
+    question: "Do you help with MC authority and compliance setup?",
+    answer: "Yes — we review your MC authority, insurance, and carrier packet during onboarding, and handle the paperwork for new broker relationships as we book loads for you."
   },
   {
     category: "SUPPORT",
-    question: "Is there 24/7 support for drivers on the road?",
-    answer: "Absolutely. We provide round-clock support, managing check calls, route optimization, and acting as your dedicated back-office team from pickup to delivery."
+    question: "Is there support for drivers on the road?",
+    answer: "Yes, our dispatch team is available for check calls, load issues, and rate negotiation support during active loads (Monday-Friday, 7am-6pm EST)."
+  },
+  {
+    category: "PRICING",
+    question: "What does Nexar Dispatch charge?",
+    answer: "We charge a flat 5% - 8% fee per load depending on equipment type and lane. No hidden fees, no subscriptions, and we only get paid when you do."
   }
 ];
 

@@ -169,13 +169,13 @@ export function RoadJourney() {
               {/* Eyebrow Reference Match */}
               <div className="flex items-center gap-3 mb-3 md:mb-4">
                 <div className="w-8 md:w-12 h-[1px] bg-[#50C878]" />
-                <span className="text-[#50C878] font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">Features</span>
+                <span className="text-[#50C878] font-bold tracking-[0.2em] text-[10px] md:text-xs uppercase">FEATURES</span>
               </div>
               
               <h2 className="text-[2.5rem] md:text-[3rem] lg:text-[3.75rem] xl:text-[4.25rem] font-display font-black leading-[0.95] tracking-tighter text-white drop-shadow-md">
-                Intelligent routing.<br/>
-                <span className="text-[#50C878]">Total control.</span><br/>
-                Zero delays.
+                Smarter Booking.<br/>
+                <span className="text-[#50C878]">Total Visibility.</span><br/>
+                Zero Downtime.
               </h2>
             </div>
 
@@ -194,10 +194,10 @@ export function RoadJourney() {
                     <div className="indicator-1 w-5 h-5 rounded flex items-center justify-center border border-white/20 bg-white/5 shadow-sm shrink-0 transition-all duration-300">
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#50C878" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
-                    Navigating Complex Routes
+                    Smarter Load Matching
                   </h3>
                   <p className="text-white/60 text-xs md:text-sm max-w-[90%] pl-8 leading-relaxed">
-                    Our advanced algorithms calculate the most efficient path for your fleet, adapting to live traffic and weather conditions seamlessly.
+                    We match loads to your lanes, equipment, and rate floor — not whatever&apos;s left on the board at the end of the day.
                   </p>
                 </div>
 
@@ -207,10 +207,10 @@ export function RoadJourney() {
                     <div className="indicator-2 w-5 h-5 rounded flex items-center justify-center border border-white/20 bg-white/5 shadow-sm shrink-0 transition-all duration-300">
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#50C878" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
-                    Always on Track
+                    Always in the Loop
                   </h3>
                   <p className="text-white/60 text-xs md:text-sm max-w-[90%] pl-8 leading-relaxed">
-                    Experience the peace of mind that comes with a dispatch service dedicated to keeping your trucks moving forward, no matter the obstacles.
+                    Live updates on load status, so you and your dispatcher are always on the same page from pickup to delivery.
                   </p>
                 </div>
 
@@ -220,10 +220,10 @@ export function RoadJourney() {
                     <div className="indicator-3 w-5 h-5 rounded flex items-center justify-center border border-white/20 bg-white/5 shadow-sm shrink-0 transition-all duration-300">
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#50C878" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
-                    On Time, Every Time
+                    Paid On Time, Every Time
                   </h3>
                   <p className="text-white/60 text-xs md:text-sm max-w-[90%] pl-8 leading-relaxed">
-                    From pickup to drop-off, our robust tracking ensures you and your clients are always updated on the exact location of the freight.
+                    From BOL to invoice to factoring submission, we keep your paperwork moving so payment isn&apos;t held up on your end.
                   </p>
                 </div>
               </div>

@@ -12,35 +12,34 @@ import {
 } from "lucide-react";
 
 
-/* ─── Step data ───────────────────────────────────────────────── */
 const STEPS = [
   {
     id: 1,
     side: "right" as const,
     Icon: ClipboardCheck,
-    title: "Submit Required Paperwork",
-    desc: "Get started instantly by submitting your MC authority, insurance, and carrier packet. Our onboarding team reviews and approves same-day so you're dispatching within 24 hours.",
+    title: "Submit Your Paperwork",
+    desc: "Send us your MC authority, insurance certificate, and carrier packet. Our onboarding team reviews and approves same-day, so you're dispatching within 24 hours.",
   },
   {
     id: 2,
     side: "left" as const,
     Icon: Container,
     title: "Get Matched With Your First 2 Free Loads",
-    desc: "We scout the load boards and broker networks to find high-paying freight that matches your equipment, preferred lanes, and rate expectations — no guesswork.",
+    desc: "We scan the load boards and our broker network for freight that fits your equipment, your preferred lanes, and your rate floor — no guesswork, no lowball offers.",
   },
   {
     id: 3,
     side: "right" as const,
     Icon: Truck,
-    title: "Worry-Free As A VIP Carrier",
-    desc: "Sit back while your dedicated dispatcher handles rate negotiations, broker communications, check calls, and paperwork — keeping your wheels turning profitably.",
+    title: "Run as a VIP Carrier",
+    desc: "Your dedicated dispatcher handles rate negotiation, broker calls, check calls, and paperwork. You drive — we run the back office.",
   },
   {
     id: 4,
     side: "left" as const,
     Icon: BadgePercent,
-    title: "Continue Dispatching At Unbeatable Rates",
-    desc: "Lock in consistent revenue with our proven dispatch process. We continuously optimize your lane mix and rate-per-mile so your earnings only go up over time.",
+    title: "Keep Dispatching at Better Rates",
+    desc: "We track your lane history and rate performance over time, tightening your lane mix so every week beats the last.",
   },
 ];
 
@@ -266,7 +265,6 @@ export function HowItWorks() {
 
       {/* ── Content wrapper ── */}
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-12 pt-20 md:pt-28 pb-0">
-
         {/* ── Section header ── */}
         <div className="hiw-header text-center mb-16 md:mb-20">
           <p
@@ -281,9 +279,12 @@ export function HowItWorks() {
           </p>
           <h2
             className="font-display font-black text-[#F1F5F9] uppercase leading-tight mb-5"
-            style={{ fontSize: "clamp(1.85rem, 4.2vw, 3.4rem)", letterSpacing: "-0.02em" }}
+            style={{
+              fontSize: "clamp(1.85rem, 4.2vw, 3.4rem)",
+              letterSpacing: "-0.02em",
+            }}
           >
-            Seamless Logistics In 4 Steps
+            Seamless Dispatching In 4 Steps
             <br />
             With Nexar
           </h2>
@@ -295,13 +296,12 @@ export function HowItWorks() {
               lineHeight: 1.68,
             }}
           >
-            Finally, A Dispatch Service That Helps Truckers Like You Operate Profitably And Stress-Free
+            A dispatch service built to keep you profitable and off the phone.
           </p>
         </div>
 
         {/* ── Timeline grid ── */}
         <div className="relative">
-
           {/* Vertical dashed line — desktop only */}
           <div
             className="hiw-line-wrap hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 z-0 pointer-events-none"
@@ -321,7 +321,6 @@ export function HowItWorks() {
           <div className="flex flex-col">
             {STEPS.map((step, i) => (
               <div key={step.id} className={`hiw-row-${i} relative`}>
-
                 {/* Top arrow (before each step except first) */}
                 {i > 0 && (
                   <div
@@ -373,12 +372,26 @@ export function HowItWorks() {
                       boxShadow: "0 0 16px rgba(127,224,77,0.14)",
                     }}
                   >
-                    {(() => { const { Icon } = step; return <Icon style={{ width: 22, height: 22, color: "#50C878", strokeWidth: 1.5 }} />; })()}
+                    {(() => {
+                      const { Icon } = step;
+                      return (
+                        <Icon
+                          style={{
+                            width: 22,
+                            height: 22,
+                            color: "#50C878",
+                            strokeWidth: 1.5,
+                          }}
+                        />
+                      );
+                    })()}
                   </div>
                   <StepCard step={step} index={i} />
                   {i < STEPS.length - 1 && (
                     <div className="flex flex-col items-center gap-1 py-1 opacity-40">
-                      <div style={{ width: 1, height: 20, background: "#555" }} />
+                      <div
+                        style={{ width: 1, height: 20, background: "#555" }}
+                      />
                       <ArrowDown className="w-6 h-5" />
                     </div>
                   )}
@@ -422,8 +435,10 @@ export function HowItWorks() {
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
               /* Fade top edge so truck sits above it naturally */
-              maskImage: "linear-gradient(to bottom, transparent 0%, black 22%, black 100%)",
-              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 22%, black 100%)",
+              maskImage:
+                "linear-gradient(to bottom, transparent 0%, black 22%, black 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, transparent 0%, black 22%, black 100%)",
             }}
           >
             NEXAR
