@@ -52,21 +52,22 @@ export function MobileCta() {
       {/* Foreground Content */}
       <div className="relative z-10 flex flex-col items-center justify-center px-5 max-w-sm mx-auto text-center">
         
-        <h2 className="text-3xl font-display font-medium text-white leading-[1.1] tracking-tight mb-5 drop-shadow-lg">
-          Transform Your Logistics Operations Into A Scalable Fleet With
+        <h2 className="text-3xl sm:text-4xl font-display font-black text-white leading-[1.3] tracking-tight mb-6 drop-shadow-lg">
+          Run Your Truck Like a{" "}
+          <span className="relative inline-block border border-[#50C878]/30 bg-[#50C878]/10 px-3 py-1 mx-1 align-middle translate-y-[-2px]">
+            {/* Corner Points */}
+            <span className="absolute top-[-2px] left-[-2px] w-[4px] h-[4px] bg-white" />
+            <span className="absolute top-[-2px] right-[-2px] w-[4px] h-[4px] bg-white" />
+            <span className="absolute bottom-[-2px] left-[-2px] w-[4px] h-[4px] bg-white" />
+            <span className="absolute bottom-[-2px] right-[-2px] w-[4px] h-[4px] bg-white" />
+            <span className="font-medium text-[#E6F4EA] leading-none">Business</span>
+          </span>
+          <br/> Not a Second Job
         </h2>
         
-        <div className="relative inline-flex items-center justify-center border border-[#50C878]/30 bg-[#50C878]/10 px-6 py-3 mb-10">
-          {/* Corner Points */}
-          <div className="absolute top-[-2px] left-[-2px] w-[3px] h-[3px] bg-white" />
-          <div className="absolute top-[-2px] right-[-2px] w-[3px] h-[3px] bg-white" />
-          <div className="absolute bottom-[-2px] left-[-2px] w-[3px] h-[3px] bg-white" />
-          <div className="absolute bottom-[-2px] right-[-2px] w-[3px] h-[3px] bg-white" />
-          
-          <span className="text-3xl font-display font-medium text-[#E6F4EA] tracking-tight whitespace-nowrap">
-            Nexar Dispatch
-          </span>
-        </div>
+        <p className="text-gray-300 text-base mb-10 leading-relaxed">
+          Let a dedicated dispatcher handle the paperwork, the negotiating, and the phone calls — you handle the miles.
+        </p>
 
         <Link href="/contact" className="group relative w-full inline-flex items-center justify-center gap-3 bg-[#50C878] text-black px-6 py-4 rounded-xl font-bold text-lg hover:bg-[#50C878]/90 transition-all shadow-[0_0_20px_rgba(80,200,120,0.3)]">
           Get Started Today

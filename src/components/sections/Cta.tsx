@@ -55,21 +55,22 @@ export function Cta() {
       {/* Foreground Content */}
       <div className="relative z-10 flex flex-col items-center justify-center px-6 max-w-5xl mx-auto text-center">
         
-        <h2 className="text-3xl md:text-5xl lg:text-[4rem] font-display font-medium text-white leading-[1.15] tracking-tight mb-6 drop-shadow-lg">
-          Transform Your Logistics Operations<br className="hidden md:block" /> Into A Scalable Fleet With
+        <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-display font-black text-white leading-[1.3] md:leading-[1.2] tracking-tight mb-8 drop-shadow-lg">
+          Run Your Truck Like a{" "}
+          <span className="relative inline-block border border-[#50C878]/30 bg-[#50C878]/10 px-4 md:px-5 py-1 md:py-2 mx-1 align-middle translate-y-[-2px]">
+            {/* Corner Points */}
+            <span className="absolute top-[-3px] left-[-3px] w-[5px] h-[5px] bg-white" />
+            <span className="absolute top-[-3px] right-[-3px] w-[5px] h-[5px] bg-white" />
+            <span className="absolute bottom-[-3px] left-[-3px] w-[5px] h-[5px] bg-white" />
+            <span className="absolute bottom-[-3px] right-[-3px] w-[5px] h-[5px] bg-white" />
+            <span className="font-medium text-[#E6F4EA] leading-none">Business</span>
+          </span>
+          <br className="hidden md:block" /> Not a Second Job
         </h2>
         
-        <div className="relative inline-flex items-center justify-center border border-[#50C878]/30 bg-[#50C878]/10 px-6 py-2 md:px-10 md:py-4 mb-14">
-          {/* Corner Points */}
-          <div className="absolute top-[-3px] left-[-3px] w-[5px] h-[5px] bg-white" />
-          <div className="absolute top-[-3px] right-[-3px] w-[5px] h-[5px] bg-white" />
-          <div className="absolute bottom-[-3px] left-[-3px] w-[5px] h-[5px] bg-white" />
-          <div className="absolute bottom-[-3px] right-[-3px] w-[5px] h-[5px] bg-white" />
-          
-          <span className="text-4xl md:text-6xl lg:text-7xl font-display font-medium text-[#E6F4EA] tracking-tight">
-            Nexar Dispatch
-          </span>
-        </div>
+        <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-14 leading-relaxed">
+          Let a dedicated dispatcher handle the paperwork, the negotiating, and the phone calls — you handle the miles.
+        </p>
 
         <Link href="/contact" className="group relative inline-flex items-center justify-center gap-3 bg-[#50C878] text-black px-10 py-5 rounded-2xl font-bold text-lg hover:bg-[#50C878]/90 transition-all shadow-[0_0_20px_rgba(80,200,120,0.3)] hover:shadow-[0_0_40px_rgba(80,200,120,0.5)]">
           Get Started Today
