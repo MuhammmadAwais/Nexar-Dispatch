@@ -85,23 +85,50 @@ const ContactExperience: React.FC = () => {
       frameloop="demand"
       dpr={isMobile ? [1, 1.5] : [1, 2]}
       camera={{
-        position: isMobile ? [0, 2.8, 8.2] : [0, 3, 7],
-        fov: isMobile ? 42 : 45,
+        position: isMobile ? [0, 1.8, 6.0] : [0, 1.6, 5.2],
+        fov: isMobile ? 42 : 38,
       }}
       gl={{ antialias: true, powerPreference: isMobile ? "default" : "high-performance" }}
       className="w-full h-full"
     >
       <BakeShadows />
       <WebGLCleaner />
-      <ambientLight intensity={0.7} color="#ffffff" />
+      
+      {/* Studio Ambient Light */}
+      <ambientLight intensity={1.1} color="#ffffff" />
 
-      <directionalLight position={[5, 5, 3]} intensity={2.5} color="#ffffff" />
-
+      {/* Main Studio Key Light (Front-Left top) */}
       <directionalLight
-        position={[5, 9, 1]}
+        position={[-5, 9, 6]}
         castShadow
+        intensity={3.2}
+        color="#ffffff"
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+        shadow-camera-near={0.5}
+        shadow-camera-far={25}
+        shadow-bias={-0.0001}
+      />
+
+      {/* Soft Studio Fill Light (Right top) */}
+      <directionalLight
+        position={[6, 7, 5]}
         intensity={2.0}
-        color="#e6e6e6"
+        color="#f0f5ff"
+      />
+
+      {/* Backlight / Rim Light for edge definition */}
+      <directionalLight
+        position={[0, 8, -6]}
+        intensity={1.5}
+        color="#ffffff"
+      />
+
+      {/* Subtle Warm Accent Fill */}
+      <directionalLight
+        position={[-4, 3, -3]}
+        intensity={1.0}
+        color="#fff5eb"
       />
 
       <OrbitControls
@@ -109,30 +136,32 @@ const ContactExperience: React.FC = () => {
         enablePan={false}
         enableDamping={true}
         dampingFactor={0.05}
-        minPolarAngle={Math.PI / 5}
-        maxPolarAngle={Math.PI / 2}
-        target={isMobile ? [0, 0.2, 0] : [0, 0, 0]}
+        minPolarAngle={Math.PI / 6}
+        maxPolarAngle={Math.PI / 2.05}
+        target={[0, 0.1, 0]}
       />
 
+      {/* Ground Shadow Plane */}
       <group scale={[1, 1, 1]}>
         <mesh
           receiveShadow
-          position={isMobile ? [0, -1.4, 0] : [0, -1.5, 0]}
+          position={[0, -0.91, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
         >
           <planeGeometry args={[30, 30]} />
           <meshStandardMaterial
-            color="#000000"
-            roughness={0.9}
-            metalness={0.1}
+            color="#080a0c"
+            roughness={0.92}
+            metalness={0.05}
           />
         </mesh>
       </group>
 
       <Suspense fallback={null}>
         <group
-          scale={isMobile ? 0.027 : 0.03}
-          position={isMobile ? [0, -1.4, -1.0] : [0, -1.49, -2]}
+          scale={isMobile ? 0.033 : 0.037}
+          position={isMobile ? [0, -0.9, 0] : [0, -0.9, 0]}
+          rotation={[0, 2.2, 0]}
           castShadow
         >
           <Computer />
@@ -143,3 +172,6 @@ const ContactExperience: React.FC = () => {
 };
 
 export default React.memo(ContactExperience);
+
+
+
