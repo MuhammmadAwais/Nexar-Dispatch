@@ -95,14 +95,14 @@ const ContactExperience: React.FC = () => {
       <WebGLCleaner />
       
       {/* Studio Ambient Light */}
-      <ambientLight intensity={1.1} color="#ffffff" />
+      <ambientLight intensity={0.9} color="#d4f4e0" />
 
-      {/* Main Studio Key Light (Front-Left top) */}
+      {/* Main Studio Key Light (Front-Left top) — Nexar Emerald Green */}
       <directionalLight
         position={[-5, 9, 6]}
         castShadow
-        intensity={3.2}
-        color="#ffffff"
+        intensity={3.5}
+        color="#50C878"
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
         shadow-camera-near={0.5}
@@ -110,25 +110,25 @@ const ContactExperience: React.FC = () => {
         shadow-bias={-0.0001}
       />
 
-      {/* Soft Studio Fill Light (Right top) */}
+      {/* Soft Studio Fill Light (Right top) — Mint / Emerald Green */}
       <directionalLight
         position={[6, 7, 5]}
         intensity={2.0}
-        color="#f0f5ff"
+        color="#34D399"
       />
 
-      {/* Backlight / Rim Light for edge definition */}
+      {/* Backlight / Rim Light for emerald green edge definition */}
       <directionalLight
         position={[0, 8, -6]}
-        intensity={1.5}
-        color="#ffffff"
+        intensity={2.4}
+        color="#50C878"
       />
 
-      {/* Subtle Warm Accent Fill */}
+      {/* Subtle Green Accent Fill */}
       <directionalLight
         position={[-4, 3, -3]}
-        intensity={1.0}
-        color="#fff5eb"
+        intensity={1.2}
+        color="#a7f3d0"
       />
 
       <OrbitControls
@@ -150,7 +150,7 @@ const ContactExperience: React.FC = () => {
         >
           <planeGeometry args={[30, 30]} />
           <meshStandardMaterial
-            color="#080a0c"
+            color="#050d08"
             roughness={0.92}
             metalness={0.05}
           />

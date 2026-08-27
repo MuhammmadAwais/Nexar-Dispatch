@@ -215,7 +215,9 @@ function Monitor({
   const screenGlassMaterial = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: new THREE.Color(0x0c0e10),
+        color: new THREE.Color(0x0a1c12),
+        emissive: new THREE.Color(0x0e3520),
+        emissiveIntensity: 0.35,
         roughness: 0.1,
         metalness: 0.4,
       }),
@@ -400,12 +402,12 @@ function DeskLamp({
               <sphereGeometry args={[1.4, 16, 16]} />
               <primitive object={copperMaterial} attach="material" />
             </mesh>
-            {/* Warm Bulb Light */}
+            {/* Emerald Green Bulb Light */}
             <pointLight
               position={[0, -1, 0]}
-              intensity={1.2}
-              distance={8}
-              color="#fff2db"
+              intensity={2.2}
+              distance={14}
+              color="#50C878"
             />
           </group>
         </group>
