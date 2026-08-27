@@ -145,14 +145,14 @@ export function MobileHero() {
       </div>
 
       {/* ── Truck Image (Bottom Half) ── */}
-      <div className="hero-truck relative flex-1 w-full z-10 flex items-end justify-end overflow-hidden pb-16">
+      <div className="hero-truck relative flex-1 w-full z-10 flex items-end justify-end overflow-hidden pb-14">
         <Image
-          src="/new-hero.webp"
+          src="/hero-truck-1-red.png"
           alt="Nexar Dispatch — Semi Truck"
-          width={800}
+          width={900}
           height={500}
           priority
-          className="w-[105%] max-w-none h-auto object-contain translate-x-[5%]"
+          className="w-[110%] max-w-none h-auto object-contain translate-x-[5%]"
           style={{
             filter: "drop-shadow(-10px 15px 30px rgba(0,0,0,0.9))",
           }}

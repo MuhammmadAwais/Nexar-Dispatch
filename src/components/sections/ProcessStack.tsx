@@ -15,19 +15,19 @@ const PROCESS_STEPS = [
     num: "/02",
     title: "Setup & Compliance",
     desc: "MC authority checks, W-9s, insurance certificates, and broker packet setup — handled before you're ever waiting on a load.",
-    img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80",
+    img: "/process/setup-compliance.jpg",
   },
   {
     num: "/03",
     title: "Strategic Booking",
     desc: "We use our broker relationships and market data to book freight that matches your rate expectations, not just whatever's available.",
-    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=80",
+    img: "/process/strategic-booking.jpg",
   },
   {
     num: "/04",
     title: "Ongoing Load Management",
     desc: "Check calls, route coordination, and back-office support from pickup to delivery.",
-    img: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&q=80",
+    img: "/process/ongoing-load-management.jpg",
   },
   {
     num: "/05",
@@ -62,9 +62,9 @@ export function ProcessStack() {
           
           {/* Dashed Arrow Graphic */}
           <div className="hidden lg:block pb-10 pr-10">
-            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">
-              <path d="M10 10 C 60 10, 100 50, 100 100" stroke="#50C878" strokeWidth="2" strokeDasharray="6 6" fill="none" />
-              <path d="M85 100 L 100 100 L 100 85" stroke="#50C878" strokeWidth="2" fill="none" />
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-75 drop-shadow-[0_0_12px_rgba(80,200,120,0.3)]">
+              <path d="M15 15 C 65 15, 100 50, 100 95" stroke="#50C878" strokeWidth="2.5" strokeDasharray="6 6" strokeLinecap="round" fill="none" />
+              <path d="M88 83 L 100 95 L 112 83" stroke="#50C878" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             </svg>
           </div>
         </div>

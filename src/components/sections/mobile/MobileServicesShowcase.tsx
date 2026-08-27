@@ -69,7 +69,7 @@ export function MobileServicesShowcase() {
         <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-[#50C878]/30 to-transparent" />
         
         <Image
-          src="/truck-sideView.png"
+          src="/truck-sideview-v2.png"
           alt="Semi Truck Side Profile"
           width={500}
           height={200}

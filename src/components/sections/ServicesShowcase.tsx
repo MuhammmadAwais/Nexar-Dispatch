@@ -142,7 +142,7 @@ export default function ServicesShowcase() {
               className="relative z-20 w-full pointer-events-none drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
             >
               <Image
-                src="/truck-sideView.png"
+                src="/truck-sideview-v2.png"
                 alt="Semi Truck Side Profile"
                 width={1200}
                 height={400}

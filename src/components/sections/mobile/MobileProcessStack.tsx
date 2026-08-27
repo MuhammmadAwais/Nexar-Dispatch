@@ -15,19 +15,19 @@ const PROCESS_STEPS = [
     num: "/02",
     title: "Setup & Compliance",
     desc: "We handle all the heavy paperwork—MC authority checks, W-9s, insurance certificates, and broker packet setups.",
-    img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
+    img: "/process/setup-compliance.jpg",
   },
   {
     num: "/03",
     title: "Strategic Booking",
     desc: "Leveraging our broker network and market analytics, we negotiate the highest-paying freight for your trucks.",
-    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80",
+    img: "/process/strategic-booking.jpg",
   },
   {
     num: "/04",
     title: "24/7 Load Management",
     desc: "We manage check calls, route optimization, and act as your dedicated back-office support from pickup to delivery.",
-    img: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80",
+    img: "/process/ongoing-load-management.jpg",
   },
   {
     num: "/05",
