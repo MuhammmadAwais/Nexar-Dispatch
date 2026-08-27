@@ -43,7 +43,7 @@ export function MobileNavbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-4 sm:px-6 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-4 sm:px-6 transition-all duration-300 ${
           scrolled ? "py-3 bg-black/90 backdrop-blur-md border-b border-white/5" : "py-4 bg-transparent"
         }`}
       >
@@ -62,7 +62,7 @@ export function MobileNavbar() {
 
         {/* Mobile toggle */}
         <button
-          className="p-2 text-[#F1F5F9]/80 hover:text-white transition-colors z-[60]"
+          className="p-2 text-[#F1F5F9]/80 hover:text-white transition-colors z-[100]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
@@ -79,7 +79,7 @@ export function MobileNavbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: prefersReducedMotion ? 0.1 : 0.2 }}
-            className="fixed inset-0 z-50 bg-black/98 backdrop-blur-2xl pt-24 px-6 pb-8 flex flex-col justify-between"
+            className="fixed inset-0 z-[110] bg-black/98 backdrop-blur-2xl pt-24 px-6 pb-8 flex flex-col justify-between"
             role="dialog"
             aria-modal="true"
           >

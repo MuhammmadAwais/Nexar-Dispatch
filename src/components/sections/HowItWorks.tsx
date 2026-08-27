@@ -463,7 +463,7 @@ export function HowItWorks() {
 
         {/* ── Truck image — sits above the NEXAR text ── */}
         <div
-          className="hiw-truck absolute z-50 pointer-events-none"
+          className="hiw-truck absolute z-30 pointer-events-none"
           style={{
             /* Position right side, front cab near center line */
             left: "50%",

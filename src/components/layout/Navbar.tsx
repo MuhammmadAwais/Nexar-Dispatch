@@ -66,7 +66,7 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 md:px-10 transition-all duration-300",
           scrolled ? "py-3 bg-black/80 backdrop-blur-md" : "py-5 bg-transparent"
         )}
       >
@@ -154,7 +154,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: prefersReducedMotion ? 0.1 : 0.22 }}
-            className="fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl pt-24 px-6 pb-8 flex flex-col justify-between lg:hidden"
+            className="fixed inset-0 z-[110] bg-black/98 backdrop-blur-2xl pt-24 px-6 pb-8 flex flex-col justify-between lg:hidden"
             role="dialog"
             aria-modal="true"
           >
