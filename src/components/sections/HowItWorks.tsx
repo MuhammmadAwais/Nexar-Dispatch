@@ -434,6 +434,8 @@ export function HowItWorks() {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
+              /* Very subtle light stroke to gently separate from background without popping */
+              WebkitTextStroke: "1px rgba(255, 255, 255, 0.12)",
               /* Fade top edge naturally so truck sits above it */
               maskImage:
                 "linear-gradient(to bottom, transparent 0%, black 15%, black 100%)",

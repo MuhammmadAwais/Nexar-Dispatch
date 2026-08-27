@@ -226,6 +226,7 @@ export function MobileHowItWorks() {
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
+              WebkitTextStroke: "0.8px rgba(255, 255, 255, 0.12)",
               maskImage:
                 "linear-gradient(to bottom, transparent 0%, black 18%, black 100%)",
               WebkitMaskImage:
