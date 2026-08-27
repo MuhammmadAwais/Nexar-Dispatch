@@ -427,18 +427,18 @@ export function HowItWorks() {
             style={{
               fontSize: "clamp(7rem, 20vw, 18rem)",
               letterSpacing: "-0.02em",
-              /* Image clipped through letters */
+              /* Image clipped cleanly through letters with corrected placement */
               backgroundImage: "url('/text-bg-image.png')",
-              backgroundSize: "110% auto",
-              backgroundPosition: "center 60%",
+              backgroundSize: "120% auto",
+              backgroundPosition: "center 75%",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
-              /* Fade top edge so truck sits above it naturally */
+              /* Fade top edge naturally so truck sits above it */
               maskImage:
-                "linear-gradient(to bottom, transparent 0%, black 22%, black 100%)",
+                "linear-gradient(to bottom, transparent 0%, black 15%, black 100%)",
               WebkitMaskImage:
-                "linear-gradient(to bottom, transparent 0%, black 22%, black 100%)",
+                "linear-gradient(to bottom, transparent 0%, black 15%, black 100%)",
             }}
           >
             NEXAR

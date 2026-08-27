@@ -222,14 +222,14 @@ export function MobileHowItWorks() {
               letterSpacing: "-0.02em",
               backgroundImage: "url('/text-bg-image.png')",
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "center 75%",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
               maskImage:
-                "linear-gradient(to bottom, transparent 0%, black 30%, black 100%)",
+                "linear-gradient(to bottom, transparent 0%, black 18%, black 100%)",
               WebkitMaskImage:
-                "linear-gradient(to bottom, transparent 0%, black 30%, black 100%)",
+                "linear-gradient(to bottom, transparent 0%, black 18%, black 100%)",
             }}
           >
             NEXAR
